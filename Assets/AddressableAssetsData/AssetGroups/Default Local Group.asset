@@ -21,13 +21,18 @@ MonoBehaviour:
     m_Address: Scene Loader
     m_ReadOnly: 0
     m_SerializedLabels: []
-  - m_GUID: c80fe761f52803846a839afcedaf42fd
-    m_Address: Assets/Scenes/MenuScene.unity
+  - m_GUID: 8c4802f55ed96db4d9bd2d8178f4f0c5
+    m_Address: Assets/_Project/Scenes/Menu Scene 2.unity
     m_ReadOnly: 0
     m_SerializedLabels:
     - scenes
-  - m_GUID: 8c4802f55ed96db4d9bd2d8178f4f0c5
+  - m_GUID: c80fe761f52803846a839afcedaf42fd
     m_Address: Assets/_Project/Scenes/Game Scene 1.unity
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - scenes
+  - m_GUID: f4afd8c62d428584697f32e081447cda
+    m_Address: Assets/_Project/Scenes/Menu Scene 1.unity
     m_ReadOnly: 0
     m_SerializedLabels:
     - scenes

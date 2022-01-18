@@ -43,6 +43,11 @@ public partial class SceneLoader : ScriptableObject
 
     async void LoadScene(int index)
     {
+        if (!Application.isPlaying)
+        {
+            return;
+        }
+        
         _cancellationToken.Cancel();
 
         Assert.IsTrue(IsValidIndex(index));
