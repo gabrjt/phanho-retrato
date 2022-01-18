@@ -43,6 +43,8 @@ public partial class SceneLoader : ScriptableObject
 
     async void LoadScene(int index)
     {
+        _cancellationToken.Cancel();
+
         Assert.IsTrue(IsValidIndex(index));
 
         if (TryUnloadCurrentScene(out var asyncOperationHandle))
@@ -53,17 +55,19 @@ public partial class SceneLoader : ScriptableObject
             {
                 return;
             }
-
-            LoadSceneInternal();
-        }
-        else
-        {
-            LoadSceneInternal();
         }
 
-        void LoadSceneInternal()
         {
-            _scenes[_index = index].LoadSceneAsync(LoadSceneMode.Additive);
+            _cancellationToken.Reset();
+
+            var (cancelled, sceneInstance) = await _scenes[_index = index].LoadSceneAsync(LoadSceneMode.Additive).WithCancellation(_cancellationToken.CancellationToken).SuppressCancellationThrow();
+
+            if (cancelled)
+            {
+                return;
+            }
+
+            SceneManager.SetActiveScene(sceneInstance.Scene);
         }
     }
 

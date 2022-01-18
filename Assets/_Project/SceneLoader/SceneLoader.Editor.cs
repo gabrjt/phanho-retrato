@@ -21,6 +21,8 @@ public partial class SceneLoader
     [Conditional("UNITY_EDITOR")]
     public void SetIndex()
     {
+        _index = default;
+        
         var activeScene = SceneManager.GetActiveScene();
 
         for (var index = 0; index < _scenes.Length; index++)
