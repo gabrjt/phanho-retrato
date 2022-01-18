@@ -18,7 +18,7 @@ public partial class SceneLoader
 
     public bool TrySetIndex()
     {
-        _index = default;
+        _scenesContainer.Index = default;
 
         var activeScene = SceneManager.GetActiveScene();
 
@@ -29,7 +29,7 @@ public partial class SceneLoader
                 continue;
             }
 
-            _index = index;
+            _scenesContainer.Index = index;
 
             return true;
         }

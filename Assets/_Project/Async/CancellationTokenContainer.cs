@@ -13,6 +13,7 @@ public class CancellationTokenContainer
 
     ~CancellationTokenContainer()
     {
+        _cancellationToken.Cancel();
         _cancellationToken.Dispose();
         _cancellationToken = null;
     }

@@ -1,6 +1,5 @@
 using Cysharp.Threading.Tasks;
 using NaughtyAttributes;
-using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.ResourceManagement.AsyncOperations;
@@ -11,49 +10,42 @@ using UnityEngine.SceneManagement;
 public partial class SceneLoader : ScriptableObject
 {
     [SerializeField] AssetReferenceContainer _scenesContainer;
-    readonly CancellationTokenContainer _cancellationToken = new();
-    int _index = -1;
 
-    int NextIndex => math.clamp((_index + 1) % _scenesContainer.Length, 0, _scenesContainer.Length - 1);
-
-    int PreviousIndex => math.clamp((_index - 1) % _scenesContainer.Length, 0, _scenesContainer.Length - 1);
-
-    public void Reset()
+    void ResetIndex()
     {
-        _index = -1;
+        _scenesContainer.ResetIndex();
     }
 
-    void OnDisable()
+    [Button]
+    public void LoadFirstScene()
     {
-        _cancellationToken.Cancel();
+        ResetIndex();
+        ReloadScene();
     }
 
     [Button]
     public void LoadNextScene()
     {
-        LoadScene(NextIndex);
+        LoadScene(_scenesContainer.NextIndex);
     }
 
     [Button]
     public void LoadPreviousScene()
     {
-        LoadScene(PreviousIndex);
+        LoadScene(_scenesContainer.PreviousIndex);
     }
 
     async void LoadScene(int index)
     {
-        if (!Application.isPlaying)
-        {
-            return;
-        }
+        Assert.IsTrue(Application.isPlaying);
 
-        _cancellationToken.Cancel();
+        _scenesContainer.Cancel();
 
         Assert.IsTrue(_scenesContainer.IsValidIndex(index));
 
         if (TryUnloadCurrentScene(out var asyncOperationHandle))
         {
-            var (cancelled, _) = await asyncOperationHandle.WithCancellation(_cancellationToken.CancellationToken).SuppressCancellationThrow();
+            var (cancelled, _) = await asyncOperationHandle.WithCancellation(_scenesContainer.CancellationToken).SuppressCancellationThrow();
 
             if (cancelled)
             {
@@ -62,10 +54,9 @@ public partial class SceneLoader : ScriptableObject
         }
 
         {
-            _cancellationToken.Reset();
+            _scenesContainer.ResetCancellationToken();
 
-            var (cancelled, sceneInstance) =
-                await _scenesContainer[_index = index].LoadSceneAsync(LoadSceneMode.Additive).WithCancellation(_cancellationToken.CancellationToken).SuppressCancellationThrow();
+            var (cancelled, sceneInstance) = await _scenesContainer[index].LoadSceneAsync(LoadSceneMode.Additive).WithCancellation(_scenesContainer.CancellationToken).SuppressCancellationThrow();
 
             if (cancelled)
             {
@@ -73,6 +64,8 @@ public partial class SceneLoader : ScriptableObject
             }
 
             SceneManager.SetActiveScene(sceneInstance.Scene);
+
+            _scenesContainer.Index = index;
         }
     }
 
@@ -80,12 +73,12 @@ public partial class SceneLoader : ScriptableObject
     {
         asyncOperationHandle = default;
 
-        if (!_scenesContainer.IsValidIndex(_index))
+        if (!_scenesContainer.IsValidIndex())
         {
             return false;
         }
 
-        var scene = _scenesContainer[_index];
+        var scene = _scenesContainer.Current;
 
         if (!scene.IsValid())
         {
@@ -99,6 +92,6 @@ public partial class SceneLoader : ScriptableObject
 
     public void ReloadScene()
     {
-        LoadScene(_index);
+        LoadScene(_scenesContainer.Index);
     }
 }

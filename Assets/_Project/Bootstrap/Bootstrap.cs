@@ -27,8 +27,7 @@ public class Bootstrap
 
         if (SceneManager.GetActiveScene().buildIndex == 0)
         {
-            sceneLoader.Reset();
-            sceneLoader.LoadNextScene();
+            sceneLoader.LoadFirstScene();
 
             return;
         }
