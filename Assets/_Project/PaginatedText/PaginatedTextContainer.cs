@@ -8,7 +8,6 @@ using UnityEngine.EventSystems;
 public class PaginatedTextContainer : MonoBehaviour, IPointerDownHandler
 {
     [SerializeField] [Required] [Expandable] PaginatedText _paginatedText;
-    [SerializeField] [Required] GameObject _panel;
     [SerializeField] [Required] TMP_Text _text;
     [SerializeField] UnityEvent _paginationFinished;
 
@@ -24,7 +23,6 @@ public class PaginatedTextContainer : MonoBehaviour, IPointerDownHandler
     void OnValidate()
     {
         Assert.IsNotNull(_paginatedText);
-        Assert.IsNotNull(_panel);
         Assert.IsNotNull(_text);
     }
 

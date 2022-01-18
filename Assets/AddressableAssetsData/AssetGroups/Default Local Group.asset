@@ -92,6 +92,14 @@ MonoBehaviour:
     m_Address: Assets/_Project/Character/Character Tails.asset
     m_ReadOnly: 0
     m_SerializedLabels: []
+  - m_GUID: 9736b3376f681d144880bb35b74553c0
+    m_Address: Assets/_Project/PaginatedText/Paginated Text Canvas.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 75967eb13e506fd40a30f4ef18e6a494
+    m_Address: Assets/_Project/SceneLoader/Scene Loader Button.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: ac1bdeb3138bf53428d372bcabff45c3, type: 2}
   m_SchemaSet:

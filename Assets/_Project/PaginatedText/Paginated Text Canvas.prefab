@@ -56,7 +56,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 25
+  m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -226,7 +226,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _paginatedText: {fileID: 11400000, guid: b48aac875ea661b489b45d1a7a71550d, type: 2}
-  _panel: {fileID: 3834188083991294021}
   _text: {fileID: 3834188082982176850}
   _paginationFinished:
     m_PersistentCalls:
