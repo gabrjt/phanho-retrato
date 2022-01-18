@@ -62,4 +62,9 @@ public struct CharacterPart
 
         return true;
     }
+
+    public bool IsValid()
+    {
+        return _spriteRenderer && _characterPartsContainer;
+    }
 }
