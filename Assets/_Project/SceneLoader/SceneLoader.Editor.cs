@@ -7,10 +7,10 @@ public partial class SceneLoader
 {
     void OnValidate()
     {
-        Assert.IsNotNull(_scenes);
-        Assert.AreNotEqual(_scenes.Length, 0);
+        Assert.IsNotNull(_scenesContainer);
+        Assert.AreNotEqual(_scenesContainer.Length, 0);
 
-        foreach (var assetReference in _scenes)
+        foreach (var assetReference in _scenesContainer.AssetReferences)
         {
             Assert.AreEqual(assetReference.editorAsset.GetType(), typeof(SceneAsset));
         }
@@ -22,9 +22,9 @@ public partial class SceneLoader
 
         var activeScene = SceneManager.GetActiveScene();
 
-        for (var index = 0; index < _scenes.Length; index++)
+        for (var index = 0; index < _scenesContainer.Length; index++)
         {
-            if (activeScene != SceneManager.GetSceneByPath(AssetDatabase.GUIDToAssetPath(_scenes[index].AssetGUID)))
+            if (activeScene != SceneManager.GetSceneByPath(AssetDatabase.GUIDToAssetPath(_scenesContainer[index].AssetGUID)))
             {
                 continue;
             }

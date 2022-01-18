@@ -2,7 +2,6 @@ using Cysharp.Threading.Tasks;
 using NaughtyAttributes;
 using Unity.Mathematics;
 using UnityEngine;
-using UnityEngine.AddressableAssets;
 using UnityEngine.Assertions;
 using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine.ResourceManagement.ResourceProviders;
@@ -11,13 +10,13 @@ using UnityEngine.SceneManagement;
 [CreateAssetMenu]
 public partial class SceneLoader : ScriptableObject
 {
-    [SerializeField] AssetReference[] _scenes;
+    [SerializeField] AssetReferenceContainer _scenesContainer;
     readonly CancellationTokenContainer _cancellationToken = new();
     int _index = -1;
 
-    int NextIndex => math.clamp((_index + 1) % _scenes.Length, 0, _scenes.Length - 1);
+    int NextIndex => math.clamp((_index + 1) % _scenesContainer.Length, 0, _scenesContainer.Length - 1);
 
-    int PreviousIndex => math.clamp((_index - 1) % _scenes.Length, 0, _scenes.Length - 1);
+    int PreviousIndex => math.clamp((_index - 1) % _scenesContainer.Length, 0, _scenesContainer.Length - 1);
 
     void OnDisable()
     {
@@ -45,7 +44,7 @@ public partial class SceneLoader : ScriptableObject
 
         _cancellationToken.Cancel();
 
-        Assert.IsTrue(_scenes.IsValidIndex(index));
+        Assert.IsTrue(_scenesContainer.IsValidIndex(index));
 
         if (TryUnloadCurrentScene(out var asyncOperationHandle))
         {
@@ -60,7 +59,8 @@ public partial class SceneLoader : ScriptableObject
         {
             _cancellationToken.Reset();
 
-            var (cancelled, sceneInstance) = await _scenes[_index = index].LoadSceneAsync(LoadSceneMode.Additive).WithCancellation(_cancellationToken.CancellationToken).SuppressCancellationThrow();
+            var (cancelled, sceneInstance) =
+                await _scenesContainer[_index = index].LoadSceneAsync(LoadSceneMode.Additive).WithCancellation(_cancellationToken.CancellationToken).SuppressCancellationThrow();
 
             if (cancelled)
             {
@@ -75,12 +75,12 @@ public partial class SceneLoader : ScriptableObject
     {
         asyncOperationHandle = default;
 
-        if (!_scenes.IsValidIndex(_index))
+        if (!_scenesContainer.IsValidIndex(_index))
         {
             return false;
         }
 
-        var scene = _scenes[_index];
+        var scene = _scenesContainer[_index];
 
         if (!scene.IsValid())
         {
