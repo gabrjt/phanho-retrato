@@ -26,8 +26,8 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - scenes
-  - m_GUID: 0ac3cc2ce10427d4ab9c6701ebddecc6
-    m_Address: Assets/Scenes/GameScene1.unity
+  - m_GUID: 8c4802f55ed96db4d9bd2d8178f4f0c5
+    m_Address: Assets/_Project/Scenes/Game Scene 1.unity
     m_ReadOnly: 0
     m_SerializedLabels:
     - scenes
