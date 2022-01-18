@@ -1,4 +1,3 @@
-using System.Diagnostics;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
@@ -8,13 +7,13 @@ public class Bootstrap
 {
     static readonly CancellationTokenContainer CancellationTokenContainer = new();
 
-    [Conditional("UNITY_EDITOR")]
     [RuntimeInitializeOnLoadMethod]
-    static async void Blabber()
+    static async void OnEnable()
     {
         Application.wantsToQuit += () =>
         {
             CancellationTokenContainer.Cancel();
+
             return true;
         };
 
@@ -25,10 +24,14 @@ public class Bootstrap
             return;
         }
 
+#if UNITY_EDITOR
         sceneLoader.SetIndex();
 
         SceneManager.LoadScene(0);
 
         sceneLoader.ReloadScene();
+#else
+        sceneLoader.LoadNextScene();
+#endif
     }
 }
