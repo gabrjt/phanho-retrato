@@ -1,3 +1,4 @@
+using System.Runtime.CompilerServices;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
@@ -24,6 +25,20 @@ public class Bootstrap
             return;
         }
 
+        if (SceneManager.GetActiveScene().buildIndex == 0)
+        {
+            sceneLoader.Reset();
+            sceneLoader.LoadNextScene();
+
+            return;
+        }
+
+        LoadGameFlow(sceneLoader);
+    }
+
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    static void LoadGameFlow(SceneLoader sceneLoader)
+    {
 #if UNITY_EDITOR
         if (!sceneLoader.TrySetIndex())
         {
@@ -33,8 +48,6 @@ public class Bootstrap
         SceneManager.LoadScene(0);
 
         sceneLoader.ReloadScene();
-#else
-        sceneLoader.LoadNextScene();
 #endif
     }
 }

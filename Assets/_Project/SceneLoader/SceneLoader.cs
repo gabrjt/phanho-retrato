@@ -18,6 +18,11 @@ public partial class SceneLoader : ScriptableObject
 
     int PreviousIndex => math.clamp((_index - 1) % _scenesContainer.Length, 0, _scenesContainer.Length - 1);
 
+    public void Reset()
+    {
+        _index = -1;
+    }
+
     void OnDisable()
     {
         _cancellationToken.Cancel();
