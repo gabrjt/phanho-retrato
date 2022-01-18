@@ -24,11 +24,6 @@ public partial class SceneLoader : ScriptableObject
         _cancellationToken.Cancel();
     }
 
-    bool IsValidIndex(int index)
-    {
-        return index >= 0 && index < _scenes.Length;
-    }
-
     [Button]
     public void LoadNextScene()
     {
@@ -47,10 +42,10 @@ public partial class SceneLoader : ScriptableObject
         {
             return;
         }
-        
+
         _cancellationToken.Cancel();
 
-        Assert.IsTrue(IsValidIndex(index));
+        Assert.IsTrue(_scenes.IsValidIndex(index));
 
         if (TryUnloadCurrentScene(out var asyncOperationHandle))
         {
@@ -80,7 +75,7 @@ public partial class SceneLoader : ScriptableObject
     {
         asyncOperationHandle = default;
 
-        if (!IsValidIndex(_index))
+        if (!_scenes.IsValidIndex(_index))
         {
             return false;
         }
