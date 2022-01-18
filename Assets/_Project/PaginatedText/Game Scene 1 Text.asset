@@ -13,6 +13,12 @@ MonoBehaviour:
   m_Name: Game Scene 1 Text
   m_EditorClassIdentifier: 
   _pages:
-  - "Texto Pagina\xE7\xE3o 1/3"
-  - "Texto Pagina\xE7\xE3o 2/3"
-  - "Texto Pagina\xE7\xE3o 3/3"
+  - 'Texto paginado
+
+
+    1 de 3'
+  - 'Texto ainda paginado
+
+
+    2 de 3'
+  - Fim do texto paginado; 3 de 3

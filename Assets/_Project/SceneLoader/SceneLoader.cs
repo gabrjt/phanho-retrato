@@ -9,7 +9,7 @@ using UnityEngine.SceneManagement;
 [CreateAssetMenu]
 public partial class SceneLoader : ScriptableObject
 {
-    [SerializeField] AssetReferenceContainer _scenesContainer;
+    [SerializeField] [Expandable] AssetReferenceContainer _scenesContainer;
 
     void ResetIndex()
     {

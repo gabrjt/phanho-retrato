@@ -1,4 +1,5 @@
-﻿using TMPro;
+﻿using NaughtyAttributes;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.Events;
@@ -6,7 +7,7 @@ using UnityEngine.EventSystems;
 
 public class PaginatedTextContainer : MonoBehaviour, IPointerDownHandler
 {
-    [SerializeField] PaginatedText _paginatedText;
+    [SerializeField] [Expandable] PaginatedText _paginatedText;
     [SerializeField] GameObject _panel;
     [SerializeField] TMP_Text _text;
     [SerializeField] UnityEvent _paginationFinished;
@@ -14,6 +15,8 @@ public class PaginatedTextContainer : MonoBehaviour, IPointerDownHandler
     void OnEnable()
     {
         _text.text = string.Empty;
+
+        _paginatedText.Reset();
 
         Paginate();
     }
@@ -32,11 +35,7 @@ public class PaginatedTextContainer : MonoBehaviour, IPointerDownHandler
 
     void Paginate()
     {
-        var result = _paginatedText.TryGetNextPage(out var page);
-
-        _panel.gameObject.SetActive(result);
-
-        if (result)
+        if (_paginatedText.TryGetNextPage(out var page))
         {
             _text.text = page;
 

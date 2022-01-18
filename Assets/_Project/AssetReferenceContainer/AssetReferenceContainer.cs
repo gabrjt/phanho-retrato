@@ -1,5 +1,7 @@
+using System;
 using System.Collections.Generic;
 using System.Threading;
+using NaughtyAttributes;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
@@ -10,8 +12,7 @@ public class AssetReferenceContainer : ScriptableObject
 {
     [SerializeField] AssetReference[] _assetReferences;
     readonly CancellationTokenContainer _cancellationToken = new();
-
-    public int Index { get; set; }
+    [NonSerialized] [ShowNonSerializedField] internal int Index;
 
     public int NextIndex => math.clamp((Index + 1) % _assetReferences.Length, 0, _assetReferences.Length - 1);
 

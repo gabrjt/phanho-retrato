@@ -1,5 +1,6 @@
 ﻿using System;
 using Cysharp.Threading.Tasks;
+using NaughtyAttributes;
 using UnityEngine;
 using UnityEngine.Assertions;
 
@@ -7,7 +8,7 @@ using UnityEngine.Assertions;
 public struct CharacterPart
 {
     [SerializeField] SpriteRenderer _spriteRenderer;
-    [SerializeField] AssetReferenceContainer _characterPartsContainer;
+    [SerializeField] [Expandable] AssetReferenceContainer _characterPartsContainer;
 
     public void LoadNextCharacterPart()
     {
