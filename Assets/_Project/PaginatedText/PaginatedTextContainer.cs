@@ -7,9 +7,9 @@ using UnityEngine.EventSystems;
 
 public class PaginatedTextContainer : MonoBehaviour, IPointerDownHandler
 {
-    [SerializeField] [Expandable] PaginatedText _paginatedText;
-    [SerializeField] GameObject _panel;
-    [SerializeField] TMP_Text _text;
+    [SerializeField] [Required] [Expandable] PaginatedText _paginatedText;
+    [SerializeField] [Required] GameObject _panel;
+    [SerializeField] [Required] TMP_Text _text;
     [SerializeField] UnityEvent _paginationFinished;
 
     void OnEnable()
