@@ -25,7 +25,10 @@ public class Bootstrap
         }
 
 #if UNITY_EDITOR
-        sceneLoader.SetIndex();
+        if (!sceneLoader.TrySetIndex())
+        {
+            return;
+        }
 
         SceneManager.LoadScene(0);
 

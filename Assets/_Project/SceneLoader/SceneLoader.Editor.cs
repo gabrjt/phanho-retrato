@@ -16,7 +16,7 @@ public partial class SceneLoader
         }
     }
 
-    public void SetIndex()
+    public bool TrySetIndex()
     {
         _index = default;
 
@@ -31,8 +31,10 @@ public partial class SceneLoader
 
             _index = index;
 
-            break;
+            return true;
         }
+
+        return false;
     }
 }
 #endif
