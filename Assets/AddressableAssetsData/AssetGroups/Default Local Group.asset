@@ -36,6 +36,10 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - scenes
+  - m_GUID: b48aac875ea661b489b45d1a7a71550d
+    m_Address: Assets/_Project/PaginatedText/Game Scene 1 Text.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: ac1bdeb3138bf53428d372bcabff45c3, type: 2}
   m_SchemaSet:
