@@ -7,8 +7,8 @@ using UnityEngine.Assertions;
 [Serializable]
 public struct CharacterPart
 {
-    [SerializeField] SpriteRenderer _spriteRenderer;
-    [SerializeField] [Expandable] AssetReferenceContainer _characterPartsContainer;
+    [SerializeField] [Required] SpriteRenderer _spriteRenderer;
+    [SerializeField] [Required] [Expandable] AssetReferenceContainer _characterPartsContainer;
 
     public void LoadNextCharacterPart()
     {
