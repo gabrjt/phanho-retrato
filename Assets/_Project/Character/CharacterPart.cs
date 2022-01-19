@@ -1,8 +1,6 @@
 ﻿using System;
-using Cysharp.Threading.Tasks;
 using NaughtyAttributes;
 using UnityEngine;
-using UnityEngine.Assertions;
 
 [Serializable]
 public struct CharacterPart
@@ -22,46 +20,20 @@ public struct CharacterPart
 
     async void LoadAsset(int index)
     {
-        Assert.IsTrue(Application.isPlaying);
-        Assert.IsTrue(_characterPartsContainer.IsValidIndex(index));
+        var (success, sprite) = await _characterPartsContainer.LoadAsset<Sprite>(index);
 
-        _characterPartsContainer.Cancel();
-
-        var assetReference = _characterPartsContainer[index];
-
-        var (cancelled, sprite) = await assetReference.LoadAssetAsync<Sprite>().WithCancellation(_characterPartsContainer.CancellationToken).SuppressCancellationThrow();
-
-        if (cancelled)
+        if (!success)
         {
             return;
         }
 
         _spriteRenderer.sprite = null;
 
-        TryUnloadCurrentAsset();
+        _characterPartsContainer.TryUnloadCurrentAsset();
 
         _spriteRenderer.sprite = sprite;
 
         _characterPartsContainer.Index = index;
-    }
-
-    bool TryUnloadCurrentAsset()
-    {
-        if (!_characterPartsContainer.IsValidIndex())
-        {
-            return false;
-        }
-
-        var assetReference = _characterPartsContainer.Current;
-
-        if (!assetReference.IsValid())
-        {
-            return false;
-        }
-
-        assetReference.ReleaseAsset();
-
-        return true;
     }
 
     public bool IsValid()
