@@ -1,5 +1,4 @@
-﻿using System.Text;
-using Cysharp.Threading.Tasks;
+﻿using Cysharp.Threading.Tasks;
 using NaughtyAttributes;
 using TMPro;
 using UnityEngine;
@@ -14,7 +13,6 @@ public class PaginatedTextContainer : MonoBehaviour, IPointerDownHandler
     [SerializeField] UnityEvent _paginationFinished;
     [SerializeField] [MinValue(0)] int _delayMilliseconds;
     readonly CancellationTokenContainer _cancellationToken = new();
-    readonly StringBuilder _stringBuilder = new();
     [ShowNonSerializedField] Status _status = Status.Idle;
 
     bool HasDelay => _delayMilliseconds > 0;
@@ -52,15 +50,13 @@ public class PaginatedTextContainer : MonoBehaviour, IPointerDownHandler
         {
             _status = Status.Paginating;
 
+            _text.text = page;
+
             if (HasDelay)
             {
-                _stringBuilder.Clear();
-
-                foreach (var character in page)
+                for (var index = 0; index < page.Length; index++)
                 {
-                    _stringBuilder.Append(character);
-
-                    _text.text = _stringBuilder.ToString();
+                    _text.maxVisibleCharacters = index + 1;
 
                     var cancelled = await UniTask.Delay(_delayMilliseconds, DelayType.UnscaledDeltaTime, PlayerLoopTiming.Update, _cancellationToken.CancellationToken).SuppressCancellationThrow();
 
@@ -71,7 +67,7 @@ public class PaginatedTextContainer : MonoBehaviour, IPointerDownHandler
                 }
             }
 
-            _text.text = page;
+            _text.maxVisibleCharacters = page.Length;
 
             _status = Status.Idle;
 
