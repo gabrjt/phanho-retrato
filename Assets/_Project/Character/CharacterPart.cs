@@ -20,7 +20,7 @@ public struct CharacterPart
 
     async void LoadAsset(int index)
     {
-        if (index == _characterPartsContainer.Index && _characterPartsContainer.IsCurrentAssetReferenceValid)
+        if (_characterPartsContainer.IsAssetReferenceValid(index))
         {
             return;
         }
@@ -32,9 +32,12 @@ public struct CharacterPart
             return;
         }
 
-        _spriteRenderer.sprite = null;
+        if (index != _characterPartsContainer.Index)
+        {
+            _spriteRenderer.sprite = null;
 
-        _characterPartsContainer.TryUnloadCurrentAsset();
+            _characterPartsContainer.TryUnloadCurrentAsset();
+        }
 
         _spriteRenderer.sprite = sprite;
 

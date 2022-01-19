@@ -45,6 +45,11 @@ public class AssetReferenceContainer : ScriptableObject
         Assert.AreNotEqual(_assetReferences.Length, 0);
     }
 
+    public bool IsAssetReferenceValid(int index)
+    {
+        return IsValidIndex(index) && _assetReferences[index].IsValid();
+    }
+
     public void ResetIndex()
     {
         Index = default;
