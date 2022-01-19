@@ -27,6 +27,7 @@ public class CancellationTokenContainer
     public void Cancel()
     {
         _cancellationToken.Cancel();
+
         Reset();
     }
 }
