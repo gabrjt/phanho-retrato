@@ -40,8 +40,6 @@ public partial class SceneLoader : ScriptableObject
         }
 
         SceneManager.SetActiveScene(sceneInstance.Scene);
-
-        _scenesContainer.Index = index;
     }
 
     void ResetIndex()

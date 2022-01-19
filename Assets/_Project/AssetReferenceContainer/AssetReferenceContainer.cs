@@ -16,7 +16,8 @@ public class AssetReferenceContainer : ScriptableObject
 {
     [SerializeField] AssetReference[] _assetReferences;
     readonly CancellationTokenContainer _cancellationToken = new();
-    [ShowNonSerializedField] internal int Index;
+
+    [field: ShowNonSerializedField] public int Index { get; private set; }
 
     public int NextIndex => math.clamp((Index + 1) % _assetReferences.Length, 0, _assetReferences.Length - 1);
 
@@ -27,8 +28,6 @@ public class AssetReferenceContainer : ScriptableObject
     public AssetReference this[int key] => _assetReferences[key];
 
     public IEnumerable<AssetReference> AssetReferences => _assetReferences;
-
-    public bool IsCurrentAssetReferenceValid => Current.IsValid();
 
     AssetReference Current => _assetReferences[Index];
 
@@ -50,6 +49,11 @@ public class AssetReferenceContainer : ScriptableObject
         return IsValidIndex(index) && _assetReferences[index].IsValid();
     }
 
+    public void SetIndex(int index)
+    {
+        Index = index;
+    }
+
     public void ResetIndex()
     {
         Index = default;
@@ -66,8 +70,6 @@ public class AssetReferenceContainer : ScriptableObject
         Assert.IsTrue(Application.isPlaying);
         Assert.IsTrue(IsValidIndex(index));
 
-        Cancel();
-
         var assetReference = _assetReferences[index];
 
         if (assetReference.IsValid())
@@ -75,7 +77,14 @@ public class AssetReferenceContainer : ScriptableObject
             return (true, (T)assetReference.Asset);
         }
 
+        Cancel();
+
         var (cancelled, asset) = await assetReference.LoadAssetAsync<T>().WithCancellation(CancellationToken).SuppressCancellationThrow();
+
+        if (!cancelled)
+        {
+            Index = index;
+        }
 
         return (!cancelled, asset);
     }
@@ -120,6 +129,11 @@ public class AssetReferenceContainer : ScriptableObject
             ResetCancellationToken();
 
             var (cancelled, sceneInstance) = await _assetReferences[index].LoadSceneAsync(LoadSceneMode.Additive).WithCancellation(CancellationToken).SuppressCancellationThrow();
+
+            if (!cancelled)
+            {
+                Index = index;
+            }
 
             return (!cancelled, sceneInstance);
         }

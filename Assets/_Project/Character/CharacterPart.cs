@@ -25,6 +25,11 @@ public struct CharacterPart
             return;
         }
 
+        if (_characterPartsContainer.TryUnloadCurrentAsset())
+        {
+            _spriteRenderer.sprite = null;
+        }
+
         var (success, sprite) = await _characterPartsContainer.LoadAsset<Sprite>(index);
 
         if (!success)
@@ -32,16 +37,7 @@ public struct CharacterPart
             return;
         }
 
-        if (index != _characterPartsContainer.Index)
-        {
-            _spriteRenderer.sprite = null;
-
-            _characterPartsContainer.TryUnloadCurrentAsset();
-        }
-
         _spriteRenderer.sprite = sprite;
-
-        _characterPartsContainer.Index = index;
     }
 
     public bool IsValid()
