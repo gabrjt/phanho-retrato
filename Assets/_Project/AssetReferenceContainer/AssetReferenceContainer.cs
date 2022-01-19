@@ -28,6 +28,8 @@ public class AssetReferenceContainer : ScriptableObject
 
     public IEnumerable<AssetReference> AssetReferences => _assetReferences;
 
+    public bool IsCurrentAssetReferenceValid => Current.IsValid();
+
     AssetReference Current => _assetReferences[Index];
 
     CancellationToken CancellationToken => _cancellationToken.CancellationToken;
@@ -62,6 +64,11 @@ public class AssetReferenceContainer : ScriptableObject
         Cancel();
 
         var assetReference = _assetReferences[index];
+
+        if (assetReference.IsValid())
+        {
+            return (true, (T)assetReference.Asset);
+        }
 
         var (cancelled, asset) = await assetReference.LoadAssetAsync<T>().WithCancellation(CancellationToken).SuppressCancellationThrow();
 

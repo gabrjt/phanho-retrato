@@ -20,6 +20,11 @@ public struct CharacterPart
 
     async void LoadAsset(int index)
     {
+        if (index == _characterPartsContainer.Index && _characterPartsContainer.IsCurrentAssetReferenceValid)
+        {
+            return;
+        }
+
         var (success, sprite) = await _characterPartsContainer.LoadAsset<Sprite>(index);
 
         if (!success)
