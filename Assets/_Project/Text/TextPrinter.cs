@@ -1,25 +1,37 @@
-﻿using Cysharp.Threading.Tasks;
+﻿using System;
+using Cysharp.Threading.Tasks;
 using NaughtyAttributes;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.Events;
 
-public class PaginatedText : MonoBehaviour
+[RequireComponent(typeof(TMP_Text))]
+public class TextPrinter : MonoBehaviour
 {
     [SerializeField] [Required] TMP_Text _text;
-    [SerializeField] UnityEvent _paginationFinished;
-    [SerializeField] [MinValue(0)] int _delayMilliseconds;
+    [SerializeField] [MinValue(0)] int _delayMilliseconds = 10;
+    [SerializeField] UnityEvent _printStarted;
+    [SerializeField] UnityEvent _printFinished;
+    public bool PrintOnEnable = true;
     readonly CancellationTokenContainer _cancellationToken = new();
     [ShowNonSerializedField] int _index;
     [ShowNonSerializedField] Status _status = Status.Idle;
+    [NonSerialized] [ShowNonSerializedField] public int MaxIndex;
+
+    public UnityEvent PrintStarted => _printStarted;
+
+    public UnityEvent PrintFinished => _printFinished;
 
     bool HasDelay => _delayMilliseconds > 0;
 
+    public TMP_Text Text => _text;
+
     async void OnEnable()
     {
-        _text.pageToDisplay = _text.maxVisibleCharacters = _index = default;
+        _text.maxVisibleCharacters = _index = default;
         _status = Status.Idle;
+        MaxIndex = _text.textInfo.characterCount;
 
         // Must wait for render to get text info properly
         var cancelled = await UniTask.WaitForEndOfFrame(_cancellationToken.CancellationToken).SuppressCancellationThrow();
@@ -29,7 +41,10 @@ public class PaginatedText : MonoBehaviour
             return;
         }
 
-        Print();
+        if (PrintOnEnable)
+        {
+            Print();
+        }
     }
 
     void OnDisable()
@@ -39,6 +54,8 @@ public class PaginatedText : MonoBehaviour
 
     void OnValidate()
     {
+        _text = GetComponent<TMP_Text>();
+
         Assert.IsNotNull(_text);
         Assert.IsFalse(string.IsNullOrEmpty(_text.text));
     }
@@ -52,21 +69,13 @@ public class PaginatedText : MonoBehaviour
             return;
         }
 
-        if (_text.pageToDisplay > 0 && _text.pageToDisplay == _text.textInfo.pageCount)
-        {
-            _paginationFinished.Invoke();
-
-            return;
-        }
-
         _status = Status.Printing;
 
-        var pageInfo = _text.textInfo.pageInfo[_text.pageToDisplay++];
-        var lastCharacterIndex = pageInfo.lastCharacterIndex + 1;
+        _printStarted.Invoke();
 
         if (HasDelay)
         {
-            while (_index <= lastCharacterIndex)
+            while (_index <= MaxIndex)
             {
                 _text.maxVisibleCharacters = _index++;
 
@@ -79,9 +88,11 @@ public class PaginatedText : MonoBehaviour
             }
         }
 
-        _text.maxVisibleCharacters = _index = lastCharacterIndex;
+        _text.maxVisibleCharacters = _index = MaxIndex;
 
         _status = Status.Idle;
+
+        _printFinished.Invoke();
     }
 
     enum Status
