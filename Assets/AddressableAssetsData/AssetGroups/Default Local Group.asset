@@ -21,11 +21,6 @@ MonoBehaviour:
     m_Address: Scene Loader
     m_ReadOnly: 0
     m_SerializedLabels: []
-  - m_GUID: 8c4802f55ed96db4d9bd2d8178f4f0c5
-    m_Address: Assets/_Project/Scenes/Menu Scene 2.unity
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - scenes
   - m_GUID: c80fe761f52803846a839afcedaf42fd
     m_Address: Assets/_Project/Scenes/Game Scene 1.unity
     m_ReadOnly: 0
@@ -36,76 +31,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - scenes
-  - m_GUID: b48aac875ea661b489b45d1a7a71550d
-    m_Address: Assets/_Project/PaginatedText/Game Scene 1 Text.asset
-    m_ReadOnly: 0
-    m_SerializedLabels: []
   - m_GUID: 323d4d64b71627c40b159b244b06acc4
     m_Address: Assets/_Project/SceneLoader/Scenes Container.asset
     m_ReadOnly: 0
     m_SerializedLabels: []
-  - m_GUID: 3d8c0a7ce8208fb4a914048d9719076d
-    m_Address: Assets/_Project/Character/Character Heads.asset
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-  - m_GUID: 6401c3376277e9b4d8a53d3c05d39167
-    m_Address: Assets/_Project/Character/Head1.png
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-  - m_GUID: 377a4045bb2172a49962a10d07df960f
-    m_Address: Assets/_Project/Character/Head2.png
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-  - m_GUID: 5b3d7c700b2138c478dec659ef0e70fb
-    m_Address: Assets/_Project/Character/Leg2.png
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-  - m_GUID: 5e8e3f8254b34b64298cb0447b22bd9d
-    m_Address: Assets/_Project/Character/Leg1.png
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-  - m_GUID: f895903d1bfc6754381da2ee18f7321a
-    m_Address: Assets/_Project/Character/Torso1.png
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-  - m_GUID: 077c9f6c29f1e184d96fbceff1a2c63e
-    m_Address: Assets/_Project/Character/Torso2.png
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-  - m_GUID: 2ea3527426d2a234eb4d2ea137f83138
-    m_Address: Assets/_Project/Character/Tail1.png
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-  - m_GUID: df6352b994cb606438ffa2160a9e0d57
-    m_Address: Assets/_Project/Character/Tail2.png
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-  - m_GUID: e06d7ad838869a84dadf411db0d9aa00
-    m_Address: Assets/_Project/Character/Character Torsos.asset
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-  - m_GUID: cab7e2190b49f584da956b0b6927050a
-    m_Address: Assets/_Project/Character/Character Legs.asset
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-  - m_GUID: 8d88823c9737c22429e2e8d471078b9c
-    m_Address: Assets/_Project/Character/Character Tails.asset
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-  - m_GUID: 9736b3376f681d144880bb35b74553c0
-    m_Address: Assets/_Project/PaginatedText/Paginated Text Canvas.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-  - m_GUID: 75967eb13e506fd40a30f4ef18e6a494
-    m_Address: Assets/_Project/SceneLoader/Scene Loader Button.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-  - m_GUID: 0da96b2bf73df9644ad13dfa9df86adc
-    m_Address: Assets/_Project/PaginatedText/Debug Paginated Text.asset
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-  - m_GUID: 1db505cc2bca3f34b8688d8370004f6d
-    m_Address: Assets/_Project/Art/cenario/primeiro fundo.jpg
+  - m_GUID: 1065d128c1b02764ba2a4e93a4def557
+    m_Address: Assets/_Project/Art/Main Sprite Atlas.spriteatlas
     m_ReadOnly: 0
     m_SerializedLabels: []
   m_ReadOnly: 0
