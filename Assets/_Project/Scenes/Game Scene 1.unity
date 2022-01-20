@@ -438,7 +438,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55706e7417cf4bb4829d763f391fead4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _paginatedText: {fileID: 11400000, guid: 0da96b2bf73df9644ad13dfa9df86adc, type: 2}
   _text: {fileID: 596992380004864490}
   _paginationFinished:
     m_PersistentCalls:
@@ -476,7 +475,18 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Texto Pagina\xE7\xE3o"
+  m_text: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ante libero,
+    efficitur non pretium ut, semper id neque. In porta ut augue quis euismod. Class
+    aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
+    In feugiat vestibulum laoreet. Cras sed nisi mauris. Aliquam dapibus nulla ante,
+    quis hendrerit sem varius et. Maecenas hendrerit mi lacus, at convallis ex pellentesque
+    eget. Fusce sagittis, arcu et pharetra molestie, urna massa fermentum nibh, eu
+    maximus dolor lacus eu quam. Proin hendrerit enim purus, non venenatis sem imperdiet
+    ut. Interdum et malesuada fames ac ante ipsum primis in faucibus. Curabitur vitae
+    sodales arcu, eget ultrices tellus. Curabitur diam libero, varius a sollicitudin
+    nec, sodales vel libero. Pellentesque ultricies eros in aliquam tincidunt. Fusce
+    pellentesque ut libero in suscipit. Mauris consectetur tortor dolor, eu interdum
+    libero aliquet vitae.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -503,7 +513,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 70.8
+  m_fontSize: 18
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -521,7 +531,7 @@ MonoBehaviour:
   m_charWidthMaxAdj: 0
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
-  m_overflowMode: 1
+  m_overflowMode: 5
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
@@ -819,7 +829,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 596992380004864488}
         m_TargetAssemblyTypeName: PaginatedTextContainer, Assembly-CSharp
-        m_MethodName: Paginate
+        m_MethodName: Print
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
