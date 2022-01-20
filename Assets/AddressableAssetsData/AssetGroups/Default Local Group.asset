@@ -104,6 +104,10 @@ MonoBehaviour:
     m_Address: Assets/_Project/PaginatedText/Debug Paginated Text.asset
     m_ReadOnly: 0
     m_SerializedLabels: []
+  - m_GUID: 1db505cc2bca3f34b8688d8370004f6d
+    m_Address: Assets/_Project/Art/cenario/primeiro fundo.jpg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: ac1bdeb3138bf53428d372bcabff45c3, type: 2}
   m_SchemaSet:
