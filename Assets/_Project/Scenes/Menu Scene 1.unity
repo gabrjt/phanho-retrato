@@ -283,7 +283,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7456984487698668074, guid: 22f753702c8567e40ace529886138905, type: 3}
       propertyPath: m_Name
-      value: Canvas
+      value: Menu Canvas
       objectReference: {fileID: 0}
     - target: {fileID: 7456984487698668078, guid: 22f753702c8567e40ace529886138905, type: 3}
       propertyPath: m_Pivot.x

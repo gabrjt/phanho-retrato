@@ -4,9 +4,8 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.Events;
-using UnityEngine.EventSystems;
 
-public class PaginatedTextContainer : MonoBehaviour, IPointerDownHandler
+public class PaginatedTextContainer : MonoBehaviour
 {
     [SerializeField] [Required] [Expandable] PaginatedText _paginatedText;
     [SerializeField] [Required] TMP_Text _text;
@@ -32,12 +31,7 @@ public class PaginatedTextContainer : MonoBehaviour, IPointerDownHandler
         Assert.IsNotNull(_text);
     }
 
-    public void OnPointerDown(PointerEventData eventData)
-    {
-        Paginate();
-    }
-
-    async void Paginate()
+    public async void Paginate()
     {
         _cancellationToken.Cancel();
 
