@@ -113,6 +113,11 @@ public class AssetReferenceContainer : ScriptableObject
         Assert.IsTrue(Application.isPlaying);
         Assert.IsTrue(IsValidIndex(index));
 
+        if (_assetReferences[index].IsValid())
+        {
+            return (false, default);
+        }
+
         Cancel();
 
         if (TryUnloadCurrentScene(out var asyncOperationHandle))

@@ -38,7 +38,6 @@ public class TextPrinter : MonoBehaviour
     {
         _text.maxVisibleCharacters = FirstIndex = default;
         State = TextPrinterState.Idle;
-        LastIndex = _text.textInfo.characterCount;
 
         // Must wait for render to get text info properly
         var cancelled = await UniTask.WaitForEndOfFrame(_cancellationToken.CancellationToken).SuppressCancellationThrow();
@@ -48,12 +47,16 @@ public class TextPrinter : MonoBehaviour
             return;
         }
 
+        LastIndex = _text.textInfo.characterCount;
+
         Enabled?.Invoke();
 
-        if (PrintOnEnable)
+        if (!PrintOnEnable)
         {
-            Print();
+            return;
         }
+
+        Print();
     }
 
     void OnDisable()
@@ -77,6 +80,13 @@ public class TextPrinter : MonoBehaviour
         {
             _cancellationToken.Cancel();
 
+            return;
+        }
+
+        Assert.AreNotEqual(LastIndex, 0);
+
+        if (FirstIndex == LastIndex)
+        {
             return;
         }
 
