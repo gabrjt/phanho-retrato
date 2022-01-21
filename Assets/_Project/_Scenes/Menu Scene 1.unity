@@ -158,7 +158,7 @@ Camera:
   m_GameObject: {fileID: 1228918676}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
+  m_ClearFlags: 2
   m_BackGroundColor: {r: 1, g: 1, b: 1, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
@@ -274,6 +274,31 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1386669604 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7456984487698668074, guid: 22f753702c8567e40ace529886138905, type: 3}
+  m_PrefabInstance: {fileID: 7456984487588631107}
+  m_PrefabAsset: {fileID: 0}
+--- !u!223 &1386669607 stripped
+Canvas:
+  m_CorrespondingSourceObject: {fileID: 7456984487698668079, guid: 22f753702c8567e40ace529886138905, type: 3}
+  m_PrefabInstance: {fileID: 7456984487588631107}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1386669609
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1386669604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a1a89af5349aaf4089de2e61c6bf558, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _canvas: {fileID: 1386669607}
+  _camera: {fileID: 1228918678}
+  _renderTextureContainer: {fileID: 11400000, guid: 28ffd200bdd74aa45b191d6c25dfd17f, type: 2}
 --- !u!1001 &7456984487588631107
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -281,6 +306,50 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7456984485965359996, guid: 22f753702c8567e40ace529886138905, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7456984485965359996, guid: 22f753702c8567e40ace529886138905, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7456984485965359996, guid: 22f753702c8567e40ace529886138905, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1386669609}
+    - target: {fileID: 7456984485965359996, guid: 22f753702c8567e40ace529886138905, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 11400000, guid: 87554f90687033142b3ecc001d696183, type: 2}
+    - target: {fileID: 7456984485965359996, guid: 22f753702c8567e40ace529886138905, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7456984485965359996, guid: 22f753702c8567e40ace529886138905, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: TakeSnapshot
+      objectReference: {fileID: 0}
+    - target: {fileID: 7456984485965359996, guid: 22f753702c8567e40ace529886138905, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: LoadNextScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 7456984485965359996, guid: 22f753702c8567e40ace529886138905, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: CanvasRenderTexture, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7456984485965359996, guid: 22f753702c8567e40ace529886138905, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: SceneLoader, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7456984485965359996, guid: 22f753702c8567e40ace529886138905, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 7456984485965359996, guid: 22f753702c8567e40ace529886138905, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 7456984487698668074, guid: 22f753702c8567e40ace529886138905, type: 3}
       propertyPath: m_Name
       value: Menu Canvas
@@ -367,6 +436,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7456984487698668078, guid: 22f753702c8567e40ace529886138905, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7456984487698668079, guid: 22f753702c8567e40ace529886138905, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 1228918678}
+    - target: {fileID: 7456984487698668079, guid: 22f753702c8567e40ace529886138905, type: 3}
+      propertyPath: m_RenderMode
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
