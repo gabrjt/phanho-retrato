@@ -20,6 +20,7 @@ public class SceneTransition : MonoBehaviour
     {
         _sceneLoader = _sceneLoaderReference.LoadAssetAsync<SceneLoader>().WaitForCompletion();
         _renderTextureContainer = _renderTextureContainerReference.LoadAssetAsync<RenderTextureContainer>().WaitForCompletion();
+        _rawImage.texture = _renderTextureContainer.RenderTexture;
 
         _renderTextureContainer.TextureRendered += OnTextureRendered;
     }
@@ -32,6 +33,7 @@ public class SceneTransition : MonoBehaviour
         _renderTextureContainer.TextureRendered -= OnTextureRendered;
 
         _sceneLoader = null;
+        _rawImage.texture = null;
         _renderTextureContainer = null;
 
         _renderTextureContainerReference.ReleaseAsset();
@@ -58,6 +60,7 @@ public class SceneTransition : MonoBehaviour
             return;
         }
 
+        _uiTransitionEffect.effectFactor = 1;
         _uiTransitionEffect.Hide();
 
         var cancelled = await UniTask.WaitUntil(IsStopped).SuppressCancellationThrow();
