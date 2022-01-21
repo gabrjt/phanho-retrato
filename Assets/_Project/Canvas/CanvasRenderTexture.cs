@@ -26,7 +26,7 @@ public class CanvasRenderTexture : MonoBehaviour
 
         _camera.Render();
 
-        _renderTextureContainer.TextureRendered();
+        _renderTextureContainer.InvokeTextureRendered();
 
         _camera.clearFlags = clearFlags;
         _canvas.renderMode = renderMode;

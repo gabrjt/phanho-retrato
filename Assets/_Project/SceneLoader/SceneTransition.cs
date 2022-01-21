@@ -1,38 +1,47 @@
-﻿using System;
-using Coffee.UIEffects;
+﻿using Coffee.UIEffects;
 using Cysharp.Threading.Tasks;
 using NaughtyAttributes;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 using UnityEngine.Assertions;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(RawImage), typeof(UITransitionEffect))]
 public class SceneTransition : MonoBehaviour
 {
-    [SerializeField] [Required] [Expandable] SceneLoader _sceneLoader;
-    [SerializeField] [Required] [Expandable] RenderTextureContainer _renderTextureContainer;
+    [SerializeField] AssetReference _sceneLoaderReference;
+    [SerializeField] AssetReference _renderTextureContainerReference;
     [SerializeField] [Required] RawImage _rawImage;
     [SerializeField] [Required] UITransitionEffect _uiTransitionEffect;
+    RenderTextureContainer _renderTextureContainer;
+    SceneLoader _sceneLoader;
 
     void OnEnable()
     {
-        _renderTextureContainer.AddListener(OnTextureRendered);
+        _sceneLoader = _sceneLoaderReference.LoadAssetAsync<SceneLoader>().WaitForCompletion();
+        _renderTextureContainer = _renderTextureContainerReference.LoadAssetAsync<RenderTextureContainer>().WaitForCompletion();
+
+        _renderTextureContainer.TextureRendered += OnTextureRendered;
     }
 
     void OnDisable()
     {
-        _renderTextureContainer.RemoveListener(OnTextureRendered);
+        Assert.IsNotNull(_sceneLoader);
+        Assert.IsNotNull(_renderTextureContainer);
+
+        _renderTextureContainer.TextureRendered -= OnTextureRendered;
+
+        _sceneLoader = null;
+        _renderTextureContainer = null;
+
+        _renderTextureContainerReference.ReleaseAsset();
+        _sceneLoaderReference.ReleaseAsset();
     }
 
     void OnValidate()
     {
         _rawImage = GetComponent<RawImage>();
         _uiTransitionEffect = GetComponent<UITransitionEffect>();
-
-        Assert.IsNotNull(_sceneLoader);
-        Assert.IsNotNull(_renderTextureContainer);
-        Assert.IsNotNull(_rawImage);
-        Assert.IsNotNull(_uiTransitionEffect);
     }
 
     bool IsStopped()

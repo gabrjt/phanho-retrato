@@ -210,8 +210,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d96947027b6a4382bb77751a8f6ef34b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _sceneLoader: {fileID: 11400000, guid: 87554f90687033142b3ecc001d696183, type: 2}
-  _renderTextureContainer: {fileID: 11400000, guid: 28ffd200bdd74aa45b191d6c25dfd17f, type: 2}
+  _sceneLoaderReference:
+    m_AssetGUID: 87554f90687033142b3ecc001d696183
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
+  _renderTextureContainerReference:
+    m_AssetGUID: 28ffd200bdd74aa45b191d6c25dfd17f
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
   _rawImage: {fileID: 995364262}
   _uiTransitionEffect: {fileID: 995364265}
 --- !u!114 &995364265
