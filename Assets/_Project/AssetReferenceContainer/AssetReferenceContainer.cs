@@ -113,7 +113,9 @@ public class AssetReferenceContainer : ScriptableObject
         Assert.IsTrue(Application.isPlaying);
         Assert.IsTrue(IsValidIndex(index));
 
-        if (_assetReferences[index].IsValid())
+        var assetReference = _assetReferences[index];
+
+        if (assetReference.IsValid())
         {
             return (false, default);
         }
@@ -133,7 +135,7 @@ public class AssetReferenceContainer : ScriptableObject
         {
             ResetCancellationToken();
 
-            var (cancelled, sceneInstance) = await _assetReferences[index].LoadSceneAsync(LoadSceneMode.Additive).WithCancellation(CancellationToken).SuppressCancellationThrow();
+            var (cancelled, sceneInstance) = await assetReference.LoadSceneAsync(LoadSceneMode.Additive).WithCancellation(CancellationToken).SuppressCancellationThrow();
 
             if (!cancelled)
             {
