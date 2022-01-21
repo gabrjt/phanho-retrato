@@ -9,6 +9,9 @@ public partial class SceneLoader : ScriptableObject
 {
     [SerializeField] [Required] [Expandable] AssetReferenceContainer _scenesContainer;
 
+    public int Index => _scenesContainer.Index;
+    public int NextIndex => _scenesContainer.NextIndex % _scenesContainer.Length;
+
     [Button]
     public void LoadNextScene()
     {

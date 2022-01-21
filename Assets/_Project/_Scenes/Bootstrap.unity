@@ -220,7 +220,7 @@ MonoBehaviour:
     m_SubObjectName: 
     m_SubObjectType: 
     m_EditorAssetChanged: 0
-  _rawImage: {fileID: 995364262}
+  _image: {fileID: 0}
   _uiTransitionEffect: {fileID: 995364265}
 --- !u!114 &995364265
 MonoBehaviour:

@@ -8,6 +8,11 @@ public class CanvasRenderTexture : MonoBehaviour
     [SerializeField] [Required] Camera _camera;
     [SerializeField] [Required] [Expandable] RenderTextureContainer _renderTextureContainer;
 
+    void Start()
+    {
+        RenderTexture();
+    }
+
     void OnValidate()
     {
         _canvas = GetComponent<Canvas>();
@@ -20,13 +25,10 @@ public class CanvasRenderTexture : MonoBehaviour
         var worldCamera = _canvas.worldCamera;
 
         _camera.clearFlags = CameraClearFlags.Nothing;
-        _camera.targetTexture = _renderTextureContainer.RenderTexture;
         _canvas.renderMode = RenderMode.ScreenSpaceCamera;
         _canvas.worldCamera = _camera;
 
-        _camera.Render();
-
-        _renderTextureContainer.InvokeTextureRendered();
+        _renderTextureContainer.RenderTexture(_canvas);
 
         _camera.clearFlags = clearFlags;
         _canvas.renderMode = renderMode;
