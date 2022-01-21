@@ -146,7 +146,7 @@ public class AssetReferenceContainer : ScriptableObject
         }
     }
 
-    bool TryUnloadCurrentScene(out AsyncOperationHandle<SceneInstance> asyncOperationHandle)
+    public bool TryUnloadCurrentScene(out AsyncOperationHandle<SceneInstance> asyncOperationHandle)
     {
         asyncOperationHandle = default;
 

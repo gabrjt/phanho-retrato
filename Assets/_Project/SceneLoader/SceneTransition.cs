@@ -1,4 +1,5 @@
-﻿using Coffee.UIEffects;
+﻿using System;
+using Coffee.UIEffects;
 using Cysharp.Threading.Tasks;
 using NaughtyAttributes;
 using UnityEngine;
@@ -6,7 +7,7 @@ using UnityEngine.Assertions;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(RawImage), typeof(UITransitionEffect))]
-public class RenderTextureTransition : MonoBehaviour
+public class SceneTransition : MonoBehaviour
 {
     [SerializeField] [Required] [Expandable] SceneLoader _sceneLoader;
     [SerializeField] [Required] [Expandable] RenderTextureContainer _renderTextureContainer;
@@ -34,18 +35,25 @@ public class RenderTextureTransition : MonoBehaviour
         Assert.IsNotNull(_uiTransitionEffect);
     }
 
+    bool IsStopped()
+    {
+        return !_uiTransitionEffect.effectPlayer.play;
+    }
+
     async void OnTextureRendered(RenderTexture renderTexture)
     {
         Assert.AreEqual(renderTexture, _renderTextureContainer.RenderTexture);
 
-        _uiTransitionEffect.Hide();
-
-        bool IsStopped()
+        if (!_sceneLoader.TryUnloadCurrentScene(out _))
         {
-            return !_uiTransitionEffect.effectPlayer.play;
+            return;
         }
 
+        _uiTransitionEffect.Hide();
+
         var cancelled = await UniTask.WaitUntil(IsStopped).SuppressCancellationThrow();
+
+        _uiTransitionEffect.effectFactor = 0;
 
         if (!cancelled)
         {

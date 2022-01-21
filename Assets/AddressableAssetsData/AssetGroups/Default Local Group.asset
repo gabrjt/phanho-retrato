@@ -180,6 +180,18 @@ MonoBehaviour:
     m_Address: Assets/_Project/_Scenes/Game Scene 2.unity
     m_ReadOnly: 0
     m_SerializedLabels: []
+  - m_GUID: 28ffd200bdd74aa45b191d6c25dfd17f
+    m_Address: Assets/_Project/Canvas/Render Texture Container.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 48f9d7e55a033b84fb0b69f2f4722a81
+    m_Address: Assets/_Project/Canvas/Canvas Render Texture.renderTexture
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 22f753702c8567e40ace529886138905
+    m_Address: Assets/_Project/Prefabs/Menu Canvas.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: ac1bdeb3138bf53428d372bcabff45c3, type: 2}
   m_SchemaSet:
