@@ -13,13 +13,23 @@ MonoBehaviour:
   m_Name: Character Legs
   m_EditorClassIdentifier: 
   _assetReferences:
-  - m_AssetGUID: 5e8e3f8254b34b64298cb0447b22bd9d
-    m_SubObjectName: Circle
+  - m_AssetGUID: 64e93b954ce3187438e3ca50a2cabeb6
+    m_SubObjectName: pernas 1 ave
     m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-    m_EditorAssetChanged: 0
-  - m_AssetGUID: 5b3d7c700b2138c478dec659ef0e70fb
-    m_SubObjectName: Circle
+    m_EditorAssetChanged: 1
+  - m_AssetGUID: 60f535e708ce92a488b56ff2d5d651bf
+    m_SubObjectName: pernas 2 cachorro
     m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-    m_EditorAssetChanged: 0
+    m_EditorAssetChanged: 1
+  - m_AssetGUID: 5653c7b51d8ec694bade0bf50481cf82
+    m_SubObjectName: pernas 3 polvo
+    m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+    m_EditorAssetChanged: 1
+  - m_AssetGUID: adf1a135c4d2a1b44bec7a4e62f0a22f
+    m_SubObjectName: pernas 4 urso
+    m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+    m_EditorAssetChanged: 1

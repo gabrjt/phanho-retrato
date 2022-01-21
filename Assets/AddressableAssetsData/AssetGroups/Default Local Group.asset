@@ -35,10 +35,147 @@ MonoBehaviour:
     m_Address: Assets/_Project/SceneLoader/Scenes Container.asset
     m_ReadOnly: 0
     m_SerializedLabels: []
-  - m_GUID: 1065d128c1b02764ba2a4e93a4def557
-    m_Address: Assets/_Project/Art/Main Sprite Atlas.spriteatlas
+  - m_GUID: 9cd4cd61d1449be42b999c86db7be1cb
+    m_Address: Assets/_Project/_Art/Character Legs Sprite Atlas.spriteatlas
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - sprite-atlas
+  - m_GUID: f94e4d3ea0cb91a4b9e457b052c4081f
+    m_Address: "Assets/_Project/_Art/partes animais/cabe\xE7a 1 peixe.png"
     m_ReadOnly: 0
     m_SerializedLabels: []
+  - m_GUID: 18943b8fb40dfa547abde72c4951c9ae
+    m_Address: "Assets/_Project/_Art/partes animais/cabe\xE7a 2 cacatua.png"
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: bbb526247264e91438b1c34f16433dbd
+    m_Address: "Assets/_Project/_Art/partes animais/cabe\xE7a 3 touro.png"
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: ae82eaa9d234ee34eb69915a5b02ca4a
+    m_Address: "Assets/_Project/_Art/partes animais/cabe\xE7a 4 girafa.png"
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: d62e8aeabe3cbaa42a29b81ac100bfc2
+    m_Address: "Assets/_Project/_Art/partes animais/bra\xE7o 1 ave.png"
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 480d9bef08f49da41a8746eef041ad74
+    m_Address: "Assets/_Project/_Art/partes animais/bra\xE7o 2 carangueijo.png"
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: d66b8eec83f3c4648865933105af74d2
+    m_Address: "Assets/_Project/_Art/partes animais/bra\xE7o 3 sapo.png"
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 3bddb7cc884abf44f947289255dcf93e
+    m_Address: "Assets/_Project/_Art/partes animais/bra\xE7o 4 pregui\xE7a.png"
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: e2ae62efdd3f9124089a6b61ce555a97
+    m_Address: Assets/_Project/_Art/partes animais/rabo 1 peixe.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 7ca4325f586d0f54d8db218ea4309177
+    m_Address: Assets/_Project/_Art/partes animais/rabo 2 jacare.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: e0b99aa166f6cc9499eaa8232a3a5a9e
+    m_Address: Assets/_Project/_Art/partes animais/rabo 3 lobo.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 292529100ced80e48affe538728faa66
+    m_Address: "Assets/_Project/_Art/partes animais/rabo 4 on\xE7a.png"
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 64e93b954ce3187438e3ca50a2cabeb6
+    m_Address: Assets/_Project/_Art/partes animais/pernas 1 ave.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 60f535e708ce92a488b56ff2d5d651bf
+    m_Address: Assets/_Project/_Art/partes animais/pernas 2 cachorro.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 5653c7b51d8ec694bade0bf50481cf82
+    m_Address: Assets/_Project/_Art/partes animais/pernas 3 polvo.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: adf1a135c4d2a1b44bec7a4e62f0a22f
+    m_Address: Assets/_Project/_Art/partes animais/pernas 4 urso.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 1065d128c1b02764ba2a4e93a4def557
+    m_Address: Assets/_Project/_Art/Main Sprite Atlas.spriteatlas
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - sprite-atlas
+  - m_GUID: b8eb79b491db8e04cbd3f3a36d5717cb
+    m_Address: Assets/_Project/_Art/Character Arms Sprite Atlas.spriteatlas
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - sprite-atlas
+  - m_GUID: 1db505cc2bca3f34b8688d8370004f6d
+    m_Address: Assets/_Project/_Art/cenario/primeiro fundo.jpg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 7abf8a3026c45a149bbc6edb1bd65998
+    m_Address: Assets/_Project/_Art/cenario/quarto fundo.jpg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: f34bcafcf42456340a905d48c01b0745
+    m_Address: Assets/_Project/_Art/cenario/segundo fundo.jpg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: c66965fc27fb12e41b729ff1905d048f
+    m_Address: Assets/_Project/_Art/cenario/sol.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: b735157f930070747ae5d195c06c2ff2
+    m_Address: Assets/_Project/_Art/cenario/terceiro fundo.jpg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: dd0fd5eccad615648acffbd796388a48
+    m_Address: Assets/_Project/_Art/personagens/personagem close.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: e50de3085e91b264da7d163250b0acd9
+    m_Address: "Assets/_Project/_Art/personagens/personagens eles bra\xE7os.png"
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: dcb6a7a7f631e294a9eb91deb4358059
+    m_Address: "Assets/_Project/_Art/personagens/personagens eles cabe\xE7as.png"
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: eb439029e98665248b5a20190fa30740
+    m_Address: Assets/_Project/_Art/personagens/personagens eles completo.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 1d05c2891582106478f6b5d29bd1c43c
+    m_Address: Assets/_Project/_Art/personagens/personagens eles pernas.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: d83edb5515617d041a068fe95e55c079
+    m_Address: "Assets/_Project/_Art/personagens/personagens eu bra\xE7os.png"
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: c741d5f26a6c0b34384f3d93447471e0
+    m_Address: Assets/_Project/_Art/personagens/personagens eu completo.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 746ec6ef9394a7d4a93bb4b73eb00284
+    m_Address: Assets/_Project/_Art/personagens/personagens eu pernas.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 9a026aa1a9f4cad4ca10c6bf56ce91ea
+    m_Address: Assets/_Project/_Art/Character Heads Sprite Atlas.spriteatlas
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - sprite-atlas
+  - m_GUID: db6151d52b0d45746bdc2ab3934eb761
+    m_Address: Assets/_Project/_Art/Character Tails Sprite Atlas.spriteatlas
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - sprite-atlas
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: ac1bdeb3138bf53428d372bcabff45c3, type: 2}
   m_SchemaSet:

@@ -13,13 +13,23 @@ MonoBehaviour:
   m_Name: Character Tails
   m_EditorClassIdentifier: 
   _assetReferences:
-  - m_AssetGUID: 2ea3527426d2a234eb4d2ea137f83138
-    m_SubObjectName: Circle
+  - m_AssetGUID: e2ae62efdd3f9124089a6b61ce555a97
+    m_SubObjectName: rabo 1 peixe
     m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-    m_EditorAssetChanged: 0
-  - m_AssetGUID: df6352b994cb606438ffa2160a9e0d57
-    m_SubObjectName: Circle
+    m_EditorAssetChanged: 1
+  - m_AssetGUID: 7ca4325f586d0f54d8db218ea4309177
+    m_SubObjectName: rabo 2 jacare
     m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-    m_EditorAssetChanged: 0
+    m_EditorAssetChanged: 1
+  - m_AssetGUID: e0b99aa166f6cc9499eaa8232a3a5a9e
+    m_SubObjectName: rabo 3 lobo
+    m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+    m_EditorAssetChanged: 1
+  - m_AssetGUID: 292529100ced80e48affe538728faa66
+    m_SubObjectName: "rabo 4 on\xE7a"
+    m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+    m_EditorAssetChanged: 1
