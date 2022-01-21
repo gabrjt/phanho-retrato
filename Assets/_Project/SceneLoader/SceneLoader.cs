@@ -40,6 +40,10 @@ public partial class SceneLoader : ScriptableObject
         }
 
         SceneManager.SetActiveScene(sceneInstance.Scene);
+
+#if UNITY_EDITOR
+        Bootstrap.SetExpanded(sceneInstance.Scene, true);
+#endif
     }
 
     void ResetIndex()
