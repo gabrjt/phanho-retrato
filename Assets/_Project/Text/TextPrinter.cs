@@ -9,15 +9,20 @@ using UnityEngine.Events;
 [RequireComponent(typeof(TMP_Text))]
 public class TextPrinter : MonoBehaviour
 {
+    public enum TextPrinterState
+    {
+        Idle,
+        Printing
+    }
+
     [SerializeField] [Required] TMP_Text _text;
     [SerializeField] [MinValue(0)] int _delayMilliseconds = 10;
     [SerializeField] UnityEvent _printStarted;
     [SerializeField] UnityEvent _printFinished;
-    public bool PrintOnEnable = true;
     readonly CancellationTokenContainer _cancellationToken = new();
-    [ShowNonSerializedField] int _index;
-    [ShowNonSerializedField] Status _status = Status.Idle;
-    [NonSerialized] [ShowNonSerializedField] public int MaxIndex;
+    [NonSerialized] [ShowNonSerializedField] public int FirstIndex;
+    [NonSerialized] [ShowNonSerializedField] public int LastIndex;
+    [NonSerialized] [ShowNonSerializedField] public bool PrintOnEnable = true;
 
     public UnityEvent PrintStarted => _printStarted;
 
@@ -27,11 +32,13 @@ public class TextPrinter : MonoBehaviour
 
     public TMP_Text Text => _text;
 
+    [field: ShowNonSerializedField] public TextPrinterState State { get; private set; } = TextPrinterState.Idle;
+
     async void OnEnable()
     {
-        _text.maxVisibleCharacters = _index = default;
-        _status = Status.Idle;
-        MaxIndex = _text.textInfo.characterCount;
+        _text.maxVisibleCharacters = FirstIndex = default;
+        State = TextPrinterState.Idle;
+        LastIndex = _text.textInfo.characterCount;
 
         // Must wait for render to get text info properly
         var cancelled = await UniTask.WaitForEndOfFrame(_cancellationToken.CancellationToken).SuppressCancellationThrow();
@@ -40,6 +47,8 @@ public class TextPrinter : MonoBehaviour
         {
             return;
         }
+
+        Enabled?.Invoke();
 
         if (PrintOnEnable)
         {
@@ -60,24 +69,26 @@ public class TextPrinter : MonoBehaviour
         Assert.IsFalse(string.IsNullOrEmpty(_text.text));
     }
 
+    public event Action Enabled;
+
     public async void Print()
     {
-        if (_status == Status.Printing)
+        if (State == TextPrinterState.Printing)
         {
             _cancellationToken.Cancel();
 
             return;
         }
 
-        _status = Status.Printing;
+        State = TextPrinterState.Printing;
 
         _printStarted.Invoke();
 
         if (HasDelay)
         {
-            while (_index <= MaxIndex)
+            while (FirstIndex < LastIndex)
             {
-                _text.maxVisibleCharacters = _index++;
+                _text.maxVisibleCharacters = FirstIndex++;
 
                 var cancelled = await UniTask.Delay(_delayMilliseconds, false, PlayerLoopTiming.Update, _cancellationToken.CancellationToken).SuppressCancellationThrow();
 
@@ -88,16 +99,10 @@ public class TextPrinter : MonoBehaviour
             }
         }
 
-        _text.maxVisibleCharacters = _index = MaxIndex;
+        _text.maxVisibleCharacters = FirstIndex = LastIndex;
 
-        _status = Status.Idle;
+        State = TextPrinterState.Idle;
 
         _printFinished.Invoke();
-    }
-
-    enum Status
-    {
-        Idle,
-        Printing
     }
 }

@@ -1,5 +1,6 @@
 ﻿using NaughtyAttributes;
 using TMPro;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.Events;
@@ -12,17 +13,24 @@ public class TextPaginator : MonoBehaviour
 
     void OnEnable()
     {
+        _textPrinter.PrintOnEnable = false;
+        _textPrinter.Enabled += PrintNextPage;
+
         var text = _textPrinter.Text;
 
         text.overflowMode = TextOverflowModes.Page;
         text.pageToDisplay = default;
-
-        _textPrinter.PrintStarted.AddListener(SetTextPrinterMaxIndex);
     }
 
     void OnDisable()
     {
-        _textPrinter.PrintStarted.RemoveListener(SetTextPrinterMaxIndex);
+        _textPrinter.PrintOnEnable = true;
+        _textPrinter.Enabled -= PrintNextPage;
+
+        var text = _textPrinter.Text;
+
+        text.overflowMode = TextOverflowModes.Overflow;
+        text.pageToDisplay = default;
     }
 
     void OnValidate()
@@ -32,8 +40,16 @@ public class TextPaginator : MonoBehaviour
         Assert.IsNotNull(_textPrinter);
     }
 
-    void SetTextPrinterMaxIndex()
+    [Button]
+    public void PrintNextPage()
     {
+        if (_textPrinter.State == TextPrinter.TextPrinterState.Printing)
+        {
+            _textPrinter.Print();
+
+            return;
+        }
+
         var text = _textPrinter.Text;
         var textInfo = text.textInfo;
 
@@ -41,11 +57,38 @@ public class TextPaginator : MonoBehaviour
         {
             _paginationFinished.Invoke();
 
-            text.pageToDisplay = default;
+            return;
+        }
+
+        SetIndexes(textInfo.pageInfo[text.pageToDisplay]);
+
+        text.pageToDisplay = math.min(text.pageToDisplay + 1, textInfo.pageCount);
+
+        _textPrinter.Print();
+    }
+
+    [Button]
+    public void PrintPreviousPage()
+    {
+        if (_textPrinter.State == TextPrinter.TextPrinterState.Printing)
+        {
+            _textPrinter.Print();
 
             return;
         }
 
-        _textPrinter.MaxIndex = textInfo.pageInfo[text.pageToDisplay++].lastCharacterIndex + 1;
+        var text = _textPrinter.Text;
+
+        text.pageToDisplay = math.max(text.pageToDisplay - 1, 1);
+
+        SetIndexes(text.textInfo.pageInfo[text.pageToDisplay - 1]);
+
+        _textPrinter.Print();
+    }
+
+    void SetIndexes(TMP_PageInfo pageInfo)
+    {
+        _textPrinter.FirstIndex = pageInfo.firstCharacterIndex;
+        _textPrinter.LastIndex = pageInfo.lastCharacterIndex + 1;
     }
 }

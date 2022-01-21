@@ -616,6 +616,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _text: {fileID: 596992380004864490}
   _delayMilliseconds: 10
+  _printStarted:
+    m_PersistentCalls:
+      m_Calls: []
   _printFinished:
     m_PersistentCalls:
       m_Calls: []
@@ -844,9 +847,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 596992380004864502}
-        m_TargetAssemblyTypeName: TextPrinter, Assembly-CSharp
-        m_MethodName: Print
+      - m_Target: {fileID: 596992380004864488}
+        m_TargetAssemblyTypeName: TextPaginator, Assembly-CSharp
+        m_MethodName: PrintNextPage
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
