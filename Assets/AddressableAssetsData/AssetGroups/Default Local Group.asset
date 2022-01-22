@@ -179,7 +179,8 @@ MonoBehaviour:
   - m_GUID: 01e99f0164b3b3a48bf1ec4579f6244b
     m_Address: Assets/_Project/_Scenes/Game Scene 2.unity
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - scenes
   - m_GUID: 28ffd200bdd74aa45b191d6c25dfd17f
     m_Address: Render Texture Container
     m_ReadOnly: 0
@@ -200,6 +201,11 @@ MonoBehaviour:
     m_Address: EventSystem
     m_ReadOnly: 0
     m_SerializedLabels: []
+  - m_GUID: 6e927a525b1ac52408e369b62ebf9809
+    m_Address: Assets/_Project/_Scenes/Game Scene 3.unity
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - scenes
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: ac1bdeb3138bf53428d372bcabff45c3, type: 2}
   m_SchemaSet:
