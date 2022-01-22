@@ -6,7 +6,7 @@ public class CanvasRenderTexture : MonoBehaviour
 {
     [SerializeField] [Required] Canvas _canvas;
     [SerializeField] [Required] Camera _camera;
-    [SerializeField] [Required] [Expandable] RenderTextureContainer _renderTextureContainer;
+    [SerializeField] [Required] RenderTextureContainer _renderTextureContainer;
 
     void Start()
     {

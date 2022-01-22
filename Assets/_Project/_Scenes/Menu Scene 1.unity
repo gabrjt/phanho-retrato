@@ -285,6 +285,10 @@ PrefabInstance:
       propertyPath: _camera
       value: 
       objectReference: {fileID: 1228918678}
+    - target: {fileID: 7456984485831588118, guid: 22f753702c8567e40ace529886138905, type: 3}
+      propertyPath: m_text
+      value: RETRATO
+      objectReference: {fileID: 0}
     - target: {fileID: 7456984485965359996, guid: 22f753702c8567e40ace529886138905, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 1
