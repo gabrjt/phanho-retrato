@@ -58,7 +58,7 @@ public partial class SceneLoader : ScriptableObject
         SceneManager.SetActiveScene(sceneInstance.Scene);
 
         SceneLoaded?.Invoke();
-        
+
 #if UNITY_EDITOR
         Bootstrap.SetExpanded(sceneInstance.Scene, true);
 #endif

@@ -37,7 +37,7 @@ public class ImageLoader
         {
             return;
         }
-        
+
         _image.sprite = sprite;
     }
 

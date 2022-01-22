@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 #if UNITY_EDITOR
 using System.Reflection;
 using UnityEditor;
+
 #endif
 
 public class Bootstrap
@@ -15,6 +16,10 @@ public class Bootstrap
     [RuntimeInitializeOnLoadMethod]
     static async void OnEnable()
     {
+#if UNITY_STANDALONE
+        Screen.SetResolution(1920, 1080, false);
+#endif
+
         Application.wantsToQuit += () =>
         {
             CancellationTokenContainer.Cancel();

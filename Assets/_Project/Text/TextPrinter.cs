@@ -67,9 +67,6 @@ public class TextPrinter : MonoBehaviour
     void OnValidate()
     {
         _text = GetComponent<TMP_Text>();
-
-        Assert.IsNotNull(_text);
-        Assert.IsFalse(string.IsNullOrEmpty(_text.text));
     }
 
     public event Action Enabled;

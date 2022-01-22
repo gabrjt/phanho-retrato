@@ -1,6 +1,5 @@
 ﻿using NaughtyAttributes;
 using UnityEngine;
-using UnityEngine.Assertions;
 
 public class ImageCharacter : MonoBehaviour
 {
@@ -8,14 +7,6 @@ public class ImageCharacter : MonoBehaviour
     [SerializeField] ImageLoader _arms;
     [SerializeField] ImageLoader _legs;
     [SerializeField] ImageLoader _tail;
-
-    void OnValidate()
-    {
-        Assert.IsTrue(_head.IsValid());
-        Assert.IsTrue(_arms.IsValid());
-        Assert.IsTrue(_legs.IsValid());
-        Assert.IsTrue(_tail.IsValid());
-    }
 
     [Button]
     public void LoadNextCharacterParts()

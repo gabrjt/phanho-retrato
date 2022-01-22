@@ -38,12 +38,6 @@ public class AssetReferenceContainer : ScriptableObject
         _cancellationToken.Cancel();
     }
 
-    void OnValidate()
-    {
-        Assert.IsNotNull(_assetReferences);
-        Assert.AreNotEqual(_assetReferences.Length, 0);
-    }
-
     public bool IsAssetReferenceValid(int index)
     {
         return IsValidIndex(index) && _assetReferences[index].IsValid();

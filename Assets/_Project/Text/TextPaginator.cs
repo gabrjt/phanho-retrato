@@ -2,7 +2,6 @@
 using TMPro;
 using Unity.Mathematics;
 using UnityEngine;
-using UnityEngine.Assertions;
 using UnityEngine.Events;
 
 [RequireComponent(typeof(TextPrinter))]
@@ -36,8 +35,6 @@ public class TextPaginator : MonoBehaviour
     void OnValidate()
     {
         _textPrinter = GetComponent<TextPrinter>();
-
-        Assert.IsNotNull(_textPrinter);
     }
 
     [Button]

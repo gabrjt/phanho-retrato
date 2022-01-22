@@ -17,10 +17,25 @@ public class SceneTransition : MonoBehaviour
     RenderTextureContainer _renderTextureContainer;
     SceneLoader _sceneLoader;
 
-    void OnEnable()
+    async void OnEnable()
     {
-        _sceneLoader = _sceneLoaderReference.LoadAssetAsync<SceneLoader>().WaitForCompletion();
-        _renderTextureContainer = _renderTextureContainerReference.LoadAssetAsync<RenderTextureContainer>().WaitForCompletion();
+        var sceneLoaderAsyncOperation = _sceneLoaderReference.LoadAssetAsync<SceneLoader>();
+        var renderTextureContainerAsyncOperation = _renderTextureContainerReference.LoadAssetAsync<RenderTextureContainer>();
+
+        bool LoadAssetsCompleted()
+        {
+            return sceneLoaderAsyncOperation.IsDone && renderTextureContainerAsyncOperation.IsDone;
+        }
+
+        var cancelled = await UniTask.WaitUntil(LoadAssetsCompleted, PlayerLoopTiming.Initialization, this.GetCancellationTokenOnDestroy()).SuppressCancellationThrow();
+
+        if (cancelled)
+        {
+            return;
+        }
+
+        _sceneLoader = sceneLoaderAsyncOperation.Result;
+        _renderTextureContainer = renderTextureContainerAsyncOperation.Result;
 
         _sceneLoader.SceneLoaded += OnSceneLoaded;
         _renderTextureContainer.TextureRendered += OnTextureRendered;
@@ -58,18 +73,11 @@ public class SceneTransition : MonoBehaviour
         return !_uiTransitionEffect.effectPlayer.play;
     }
 
-    async void OnTextureRendered(Canvas canvas, RenderTexture renderTexture)
+    void OnTextureRendered(Canvas canvas, RenderTexture renderTexture)
     {
-        _image.texture = renderTexture.ToTexture2D();
-
         canvas.gameObject.SetActive(false);
 
-        var cancelled = await UniTask.WaitForEndOfFrame(this.GetCancellationTokenOnDestroy()).SuppressCancellationThrow();
-
-        if (cancelled)
-        {
-            return;
-        }
+        _image.texture = renderTexture.ToTexture2D();
 
         if (_fadeIn)
         {
@@ -102,6 +110,7 @@ public class SceneTransition : MonoBehaviour
             return;
         }
 
+        _image.gameObject.SetActive(true);
         _uiTransitionEffect.Hide();
 
         var cancelled = await UniTask.WaitUntil(IsStopped, PlayerLoopTiming.Update, this.GetCancellationTokenOnDestroy()).SuppressCancellationThrow();

@@ -1,3 +1,4 @@
+using Cysharp.Threading.Tasks;
 using NaughtyAttributes;
 using UnityEngine;
 
@@ -8,8 +9,17 @@ public class CanvasRenderTexture : MonoBehaviour
     [SerializeField] [Required] Camera _camera;
     [SerializeField] [Required] RenderTextureContainer _renderTextureContainer;
 
-    void Start()
+    async void Start()
     {
+        _canvas.gameObject.SetActive(false);
+
+        var cancelled = await UniTask.WaitUntil(_renderTextureContainer.HasListener, PlayerLoopTiming.Initialization, this.GetCancellationTokenOnDestroy()).SuppressCancellationThrow();
+
+        if (cancelled)
+        {
+            return;
+        }
+
         RenderTexture();
     }
 
@@ -33,6 +43,5 @@ public class CanvasRenderTexture : MonoBehaviour
         _camera.clearFlags = clearFlags;
         _canvas.renderMode = renderMode;
         _canvas.worldCamera = worldCamera;
-        _camera.targetTexture = null;
     }
 }
