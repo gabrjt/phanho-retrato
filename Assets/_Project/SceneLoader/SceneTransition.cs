@@ -13,7 +13,7 @@ public class SceneTransition : MonoBehaviour
     [SerializeField] AssetReference _renderTextureContainerReference;
     [SerializeField] [Required] RawImage _image;
     [SerializeField] [Required] UITransitionEffect _uiTransitionEffect;
-    [ShowNonSerializedField] int _index;
+    [ShowNonSerializedField] bool _fadeIn = true;
     RenderTextureContainer _renderTextureContainer;
     SceneLoader _sceneLoader;
 
@@ -22,6 +22,7 @@ public class SceneTransition : MonoBehaviour
         _sceneLoader = _sceneLoaderReference.LoadAssetAsync<SceneLoader>().WaitForCompletion();
         _renderTextureContainer = _renderTextureContainerReference.LoadAssetAsync<RenderTextureContainer>().WaitForCompletion();
 
+        _sceneLoader.SceneLoaded += OnSceneLoaded;
         _renderTextureContainer.TextureRendered += OnTextureRendered;
     }
 
@@ -30,6 +31,7 @@ public class SceneTransition : MonoBehaviour
         Assert.IsNotNull(_sceneLoader);
         Assert.IsNotNull(_renderTextureContainer);
 
+        _sceneLoader.SceneLoaded -= OnSceneLoaded;
         _renderTextureContainer.TextureRendered -= OnTextureRendered;
 
         _sceneLoader = null;
@@ -46,22 +48,34 @@ public class SceneTransition : MonoBehaviour
         _uiTransitionEffect = GetComponent<UITransitionEffect>();
     }
 
+    void OnSceneLoaded()
+    {
+        _fadeIn = true;
+    }
+
     bool IsStopped()
     {
         return !_uiTransitionEffect.effectPlayer.play;
     }
 
-    void OnTextureRendered(Canvas canvas, RenderTexture renderTexture)
+    async void OnTextureRendered(Canvas canvas, RenderTexture renderTexture)
     {
         _image.texture = renderTexture.ToTexture2D();
 
         canvas.gameObject.SetActive(false);
 
-        if (_index == _sceneLoader.Index)
-        {
-            FadeIn(canvas);
+        var cancelled = await UniTask.WaitForEndOfFrame(this.GetCancellationTokenOnDestroy()).SuppressCancellationThrow();
 
-            _index = _sceneLoader.NextIndex;
+        if (cancelled)
+        {
+            return;
+        }
+
+        if (_fadeIn)
+        {
+            _fadeIn = false;
+
+            FadeIn(canvas);
         }
         else
         {
@@ -73,7 +87,7 @@ public class SceneTransition : MonoBehaviour
     {
         _uiTransitionEffect.Show();
 
-        var cancelled = await UniTask.WaitUntil(IsStopped).SuppressCancellationThrow();
+        var cancelled = await UniTask.WaitUntil(IsStopped, PlayerLoopTiming.Update, this.GetCancellationTokenOnDestroy()).SuppressCancellationThrow();
 
         if (!cancelled)
         {
@@ -90,7 +104,7 @@ public class SceneTransition : MonoBehaviour
 
         _uiTransitionEffect.Hide();
 
-        var cancelled = await UniTask.WaitUntil(IsStopped).SuppressCancellationThrow();
+        var cancelled = await UniTask.WaitUntil(IsStopped, PlayerLoopTiming.Update, this.GetCancellationTokenOnDestroy()).SuppressCancellationThrow();
 
         if (!cancelled)
         {

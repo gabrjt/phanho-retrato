@@ -1,3 +1,4 @@
+using System;
 using NaughtyAttributes;
 using UnityEngine;
 using UnityEngine.ResourceManagement.AsyncOperations;
@@ -10,7 +11,12 @@ public partial class SceneLoader : ScriptableObject
     [SerializeField] [Required] [Expandable] AssetReferenceContainer _scenesContainer;
 
     public int Index => _scenesContainer.Index;
-    public int NextIndex => _scenesContainer.NextIndex % _scenesContainer.Length;
+
+    public int NextIndex => _scenesContainer.NextIndex;
+
+    public int PreviousIndex => _scenesContainer.PreviousIndex;
+
+    public event Action SceneLoaded;
 
     [Button]
     public void LoadNextScene()
@@ -51,6 +57,8 @@ public partial class SceneLoader : ScriptableObject
 
         SceneManager.SetActiveScene(sceneInstance.Scene);
 
+        SceneLoaded?.Invoke();
+        
 #if UNITY_EDITOR
         Bootstrap.SetExpanded(sceneInstance.Scene, true);
 #endif
