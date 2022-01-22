@@ -16,7 +16,8 @@ public class TextPrinter : MonoBehaviour
     }
 
     [SerializeField] [Required] TMP_Text _text;
-    [SerializeField] [MinValue(0)] int _delayMilliseconds = 10;
+    [SerializeField] [MinValue(0)] int _printOnEnableDelayMilliseconds = 1000;
+    [SerializeField] [MinValue(0)] int _printDelayMilliseconds = 10;
     [SerializeField] UnityEvent _printStarted;
     [SerializeField] UnityEvent _printFinished;
     readonly CancellationTokenContainer _cancellationToken = new();
@@ -28,7 +29,7 @@ public class TextPrinter : MonoBehaviour
 
     public UnityEvent PrintFinished => _printFinished;
 
-    bool HasDelay => _delayMilliseconds > 0;
+    bool HasDelay => _printDelayMilliseconds > 0;
 
     public TMP_Text Text => _text;
 
@@ -39,12 +40,16 @@ public class TextPrinter : MonoBehaviour
         _text.maxVisibleCharacters = FirstIndex = default;
         State = TextPrinterState.Idle;
 
-        // Must wait for render to get text info properly
-        var cancelled = await UniTask.WaitForEndOfFrame(_cancellationToken.CancellationToken).SuppressCancellationThrow();
+        var cancellationToken = _cancellationToken.CancellationToken;
 
-        if (cancelled)
         {
-            return;
+            // Must wait for render to get text info properly
+            var cancelled = await UniTask.WaitForEndOfFrame(cancellationToken).SuppressCancellationThrow();
+
+            if (cancelled)
+            {
+                return;
+            }
         }
 
         LastIndex = _text.textInfo.characterCount;
@@ -87,6 +92,16 @@ public class TextPrinter : MonoBehaviour
             return;
         }
 
+        if (FirstIndex == 0 && _printDelayMilliseconds > 0)
+        {
+            var cancelled = await UniTask.Delay(_printOnEnableDelayMilliseconds, false, PlayerLoopTiming.Update, _cancellationToken.CancellationToken).SuppressCancellationThrow();
+
+            if (cancelled)
+            {
+                return;
+            }
+        }
+
         State = TextPrinterState.Printing;
 
         _printStarted.Invoke();
@@ -97,7 +112,7 @@ public class TextPrinter : MonoBehaviour
             {
                 _text.maxVisibleCharacters = FirstIndex++;
 
-                var cancelled = await UniTask.Delay(_delayMilliseconds, false, PlayerLoopTiming.Update, _cancellationToken.CancellationToken).SuppressCancellationThrow();
+                var cancelled = await UniTask.Delay(_printDelayMilliseconds, false, PlayerLoopTiming.Update, _cancellationToken.CancellationToken).SuppressCancellationThrow();
 
                 if (cancelled)
                 {
