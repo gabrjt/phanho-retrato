@@ -16,8 +16,10 @@ public class Bootstrap
     [RuntimeInitializeOnLoadMethod]
     static async void OnEnable()
     {
-#if UNITY_STANDALONE
+#if DEVELOPMENT_BUILD
         Screen.SetResolution(1920, 1080, false);
+#else
+        Screen.fullScreen = true;
 #endif
 
         Application.wantsToQuit += () =>
