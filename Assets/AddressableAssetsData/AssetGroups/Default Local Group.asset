@@ -188,6 +188,18 @@ MonoBehaviour:
     m_Address: Menu Canvas
     m_ReadOnly: 0
     m_SerializedLabels: []
+  - m_GUID: 2208daae608075e4ea7ba6d033fb52d9
+    m_Address: Game Canvas
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 42918442d7d19374584f826edf25e40b
+    m_Address: Main Camera
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 4288fddcc80320c46a783e59b3305a13
+    m_Address: EventSystem
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: ac1bdeb3138bf53428d372bcabff45c3, type: 2}
   m_SchemaSet:
