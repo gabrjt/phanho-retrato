@@ -147,6 +147,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _image: {fileID: 5158711088010829233}
+  _selected:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &5158711088010829239
 GameObject:
   m_ObjectHideFlags: 0
@@ -354,7 +357,7 @@ Canvas:
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
-  m_OverrideSorting: 1
+  m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
