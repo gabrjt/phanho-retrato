@@ -519,7 +519,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 272806493046723943, guid: 2208daae608075e4ea7ba6d033fb52d9, type: 3}
       propertyPath: m_text
-      value: Verso 3
+      value: conviver e aprender
+      objectReference: {fileID: 0}
+    - target: {fileID: 272806493046723943, guid: 2208daae608075e4ea7ba6d033fb52d9, type: 3}
+      propertyPath: m_fontSize
+      value: 62.45
       objectReference: {fileID: 0}
     - target: {fileID: 544972467305503502, guid: 2208daae608075e4ea7ba6d033fb52d9, type: 3}
       propertyPath: m_IsActive
