@@ -227,6 +227,10 @@ MonoBehaviour:
     m_Address: Character
     m_ReadOnly: 0
     m_SerializedLabels: []
+  - m_GUID: 2ee97fa76b2584e47a1563fad3c50fb3
+    m_Address: Assets/_Project/_Art/NextIcon.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: ac1bdeb3138bf53428d372bcabff45c3, type: 2}
   m_SchemaSet:
