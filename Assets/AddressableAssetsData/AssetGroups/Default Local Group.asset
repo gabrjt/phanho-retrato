@@ -231,6 +231,16 @@ MonoBehaviour:
     m_Address: Assets/_Project/_Art/NextIcon.png
     m_ReadOnly: 0
     m_SerializedLabels: []
+  - m_GUID: 3fdb9932a1142cb4c82940de560b17ba
+    m_Address: Assets/_Project/_Scenes/Game Scene 5.unity
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - scenes
+  - m_GUID: e27c40e6845b4434da4283205a06a8bf
+    m_Address: Assets/_Project/_Scenes/Game Scene 6.unity
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - scenes
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: ac1bdeb3138bf53428d372bcabff45c3, type: 2}
   m_SchemaSet:
