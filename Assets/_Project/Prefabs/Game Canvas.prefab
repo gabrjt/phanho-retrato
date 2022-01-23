@@ -94,7 +94,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 62.05
+  m_fontSize: 62.15
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -660,7 +660,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 3
   m_TargetDisplay: 0
 --- !u!114 &3320251887043674705
 MonoBehaviour:
@@ -849,6 +849,10 @@ GameObject:
   - component: {fileID: 8941482348246658855}
   - component: {fileID: 2287218394847302938}
   - component: {fileID: 4327513199771054427}
+  - component: {fileID: 5216436404502796212}
+  - component: {fileID: 4246251781148615159}
+  - component: {fileID: 7510197798627652793}
+  - component: {fileID: 6960421760857434594}
   m_Layer: 5
   m_Name: Next Scene Button
   m_TagString: Untagged
@@ -998,3 +1002,55 @@ MonoBehaviour:
     loop: 0
     loopDelay: 0
     updateMode: 0
+--- !u!114 &5216436404502796212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7414886723242465500}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80d0dc1cc706f0447a151691caa1e023, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _uiTransitionEffect: {fileID: 4327513199771054427}
+--- !u!114 &4246251781148615159
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7414886723242465500}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80d0dc1cc706f0447a151691caa1e023, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _uiTransitionEffect: {fileID: 4327513199771054427}
+--- !u!114 &7510197798627652793
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7414886723242465500}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80d0dc1cc706f0447a151691caa1e023, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _uiTransitionEffect: {fileID: 4327513199771054427}
+--- !u!114 &6960421760857434594
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7414886723242465500}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80d0dc1cc706f0447a151691caa1e023, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _uiTransitionEffect: {fileID: 4327513199771054427}
