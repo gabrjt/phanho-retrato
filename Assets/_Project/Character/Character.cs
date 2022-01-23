@@ -17,6 +17,7 @@ public class Character : MonoBehaviour
         _arms.enabled = _arms.sprite = _bodyParts.Arms;
         _legs.enabled = _legs.sprite = _bodyParts.Legs;
         _tail.enabled = _tail.sprite = _bodyParts.Tail;
+        _self.enabled = !(_head.enabled && _arms.enabled && _legs.enabled && _tail.enabled);
     }
 
     void OnDisable()

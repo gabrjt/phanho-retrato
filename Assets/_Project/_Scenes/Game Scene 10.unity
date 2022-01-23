@@ -132,20 +132,20 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 272806493046723943, guid: 2208daae608075e4ea7ba6d033fb52d9, type: 3}
       propertyPath: m_text
-      value: "como um quebra-cabe\xE7as"
+      value: "que o crescer \xE9 inerente"
       objectReference: {fileID: 0}
     - target: {fileID: 272806493046723943, guid: 2208daae608075e4ea7ba6d033fb52d9, type: 3}
       propertyPath: m_fontSize
-      value: 62.1
+      value: 62.15
       objectReference: {fileID: 0}
     - target: {fileID: 2348047444236403183, guid: 2208daae608075e4ea7ba6d033fb52d9, type: 3}
       propertyPath: m_text
-      value: 8/11
+      value: 10/11
       objectReference: {fileID: 0}
     - target: {fileID: 4114563149788338448, guid: 2208daae608075e4ea7ba6d033fb52d9, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: b735157f930070747ae5d195c06c2ff2, type: 3}
+      objectReference: {fileID: 21300000, guid: 7abf8a3026c45a149bbc6edb1bd65998, type: 3}
     - target: {fileID: 4114563150371599071, guid: 2208daae608075e4ea7ba6d033fb52d9, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 1
@@ -284,22 +284,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 378180561}
     m_Modifications:
-    - target: {fileID: 2472730290362740132, guid: 6221d1bc1f77f6f449729b84543aad42, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2472730290362740132, guid: 6221d1bc1f77f6f449729b84543aad42, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2472730290362740132, guid: 6221d1bc1f77f6f449729b84543aad42, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -4.0000005
-      objectReference: {fileID: 0}
-    - target: {fileID: 2472730290362740132, guid: 6221d1bc1f77f6f449729b84543aad42, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -3.0000005
-      objectReference: {fileID: 0}
     - target: {fileID: 3414541068206446952, guid: 6221d1bc1f77f6f449729b84543aad42, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -391,7 +375,11 @@ PrefabInstance:
     - target: {fileID: 8152124582697467856, guid: 6221d1bc1f77f6f449729b84543aad42, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: d83edb5515617d041a068fe95e55c079, type: 3}
+      objectReference: {fileID: 21300000, guid: c741d5f26a6c0b34384f3d93447471e0, type: 3}
+    - target: {fileID: 8152124582697467856, guid: 6221d1bc1f77f6f449729b84543aad42, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6221d1bc1f77f6f449729b84543aad42, type: 3}
 --- !u!1001 &6574686589535881151
