@@ -211,11 +211,20 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
   - m_GUID: 8d1d467becf75ab439d9b5931210e54d
-    m_Address: Character
+    m_Address: Character Them
     m_ReadOnly: 0
     m_SerializedLabels: []
   - m_GUID: c940bcc618c6fa943be2684719ef12c5
     m_Address: Character Body Parts
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 94d1e4d199f33a241a5c86929e72959b
+    m_Address: Assets/_Project/_Scenes/Game Scene 4.unity
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - scenes
+  - m_GUID: 6221d1bc1f77f6f449729b84543aad42
+    m_Address: Character
     m_ReadOnly: 0
     m_SerializedLabels: []
   m_ReadOnly: 0

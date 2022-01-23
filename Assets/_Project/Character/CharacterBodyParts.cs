@@ -10,6 +10,14 @@ public class CharacterBodyParts : ScriptableObject, IDisposable
     [SerializeField] Sprite _legs;
     [SerializeField] Sprite _tail;
 
+    public Sprite Head => _head;
+
+    public Sprite Arms => _arms;
+
+    public Sprite Legs => _legs;
+
+    public Sprite Tail => _tail;
+
     void OnEnable()
     {
         Dispose();
