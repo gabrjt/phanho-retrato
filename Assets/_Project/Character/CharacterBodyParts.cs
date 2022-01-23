@@ -1,6 +1,5 @@
 ﻿using System;
 using UnityEngine;
-using UnityEngine.Assertions;
 
 [CreateAssetMenu]
 public class CharacterBodyParts : ScriptableObject, IDisposable
@@ -30,29 +29,21 @@ public class CharacterBodyParts : ScriptableObject, IDisposable
 
     public void SetHead(Sprite sprite)
     {
-        Assert.IsNull(_head);
-
         _head = sprite;
     }
 
     public void SetArms(Sprite sprite)
     {
-        Assert.IsNull(_arms);
-
         _arms = sprite;
     }
 
     public void SetLegs(Sprite sprite)
     {
-        Assert.IsNull(_legs);
-
         _legs = sprite;
     }
 
     public void SetTail(Sprite sprite)
     {
-        Assert.IsNull(_tail);
-
         _tail = sprite;
     }
 }
