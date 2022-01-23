@@ -241,6 +241,16 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - scenes
+  - m_GUID: a814862b7ae504645933cb37b85ff7fb
+    m_Address: Assets/_Project/_Scenes/Game Scene 7.unity
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - scenes
+  - m_GUID: 92f4081615231dd41a97af231e5b0006
+    m_Address: Assets/_Project/_Scenes/Game Scene 8.unity
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - scenes
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: ac1bdeb3138bf53428d372bcabff45c3, type: 2}
   m_SchemaSet:
