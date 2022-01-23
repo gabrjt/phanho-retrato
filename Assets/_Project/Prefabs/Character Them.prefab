@@ -146,6 +146,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03e53f4b2952bb949a2dd9675a8b6abe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _uiEffect: {fileID: 1635568677976226581}
   _image: {fileID: 5158711088010829233}
   _selected:
     m_PersistentCalls:
@@ -175,16 +176,16 @@ MonoBehaviour:
           m_BoolArgument: 1
         m_CallState: 2
       - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Coffee.UIEffects.UITransitionEffect, UIEffect
+        m_TargetAssemblyTypeName: UITransitionEffectLock, Assembly-CSharp
         m_MethodName: Show
-        m_Mode: 6
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 1
+          m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &5158711088010829239
 GameObject:
@@ -273,6 +274,7 @@ GameObject:
   - component: {fileID: 5158711088908132206}
   - component: {fileID: 5158711088908132200}
   - component: {fileID: 5158711088908132207}
+  - component: {fileID: 1635568677976226581}
   m_Layer: 5
   m_Name: Character
   m_TagString: Untagged
@@ -338,6 +340,25 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &1635568677976226581
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5158711088908132205}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8b2ed11d675446c5a49da1ea296d490, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectFactor: 1
+  m_ColorFactor: 1
+  m_BlurFactor: 1
+  m_EffectMode: 0
+  m_ColorMode: 0
+  m_BlurMode: 0
+  m_AdvancedBlur: 0
 --- !u!1 &5158711089136866906
 GameObject:
   m_ObjectHideFlags: 0
