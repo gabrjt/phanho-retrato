@@ -224,7 +224,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1683147687512773850, guid: 8d1d467becf75ab439d9b5931210e54d, type: 3}
       propertyPath: _selected.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
-      value: Show
+      value: WaitUnlockAndShow
       objectReference: {fileID: 0}
     - target: {fileID: 1683147687512773850, guid: 8d1d467becf75ab439d9b5931210e54d, type: 3}
       propertyPath: _selected.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
@@ -437,7 +437,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1683147687512773850, guid: 8d1d467becf75ab439d9b5931210e54d, type: 3}
       propertyPath: _selected.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
-      value: Show
+      value: WaitUnlockAndShow
       objectReference: {fileID: 0}
     - target: {fileID: 1683147687512773850, guid: 8d1d467becf75ab439d9b5931210e54d, type: 3}
       propertyPath: _selected.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
@@ -650,7 +650,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1683147687512773850, guid: 8d1d467becf75ab439d9b5931210e54d, type: 3}
       propertyPath: _selected.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
-      value: Show
+      value: WaitUnlockAndShow
       objectReference: {fileID: 0}
     - target: {fileID: 1683147687512773850, guid: 8d1d467becf75ab439d9b5931210e54d, type: 3}
       propertyPath: _selected.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
@@ -917,25 +917,49 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7414886723242465500, guid: 2208daae608075e4ea7ba6d033fb52d9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8275188840507794060, guid: 2208daae608075e4ea7ba6d033fb52d9, type: 3}
       propertyPath: _printFinished.m_PersistentCalls.m_Calls.Array.size
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8275188840507794060, guid: 2208daae608075e4ea7ba6d033fb52d9, type: 3}
+      propertyPath: _printFinished.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8275188840507794060, guid: 2208daae608075e4ea7ba6d033fb52d9, type: 3}
       propertyPath: _printFinished.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 378180564}
+      objectReference: {fileID: 1054373899}
     - target: {fileID: 8275188840507794060, guid: 2208daae608075e4ea7ba6d033fb52d9, type: 3}
       propertyPath: _printFinished.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 378180563}
     - target: {fileID: 8275188840507794060, guid: 2208daae608075e4ea7ba6d033fb52d9, type: 3}
+      propertyPath: _printFinished.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetLocked
+      objectReference: {fileID: 0}
+    - target: {fileID: 8275188840507794060, guid: 2208daae608075e4ea7ba6d033fb52d9, type: 3}
       propertyPath: _printFinished.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
       value: Show
       objectReference: {fileID: 0}
     - target: {fileID: 8275188840507794060, guid: 2208daae608075e4ea7ba6d033fb52d9, type: 3}
+      propertyPath: _printFinished.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UITransitionEffectLock, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8275188840507794060, guid: 2208daae608075e4ea7ba6d033fb52d9, type: 3}
       propertyPath: _printFinished.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
       value: Coffee.UIEffects.UITransitionEffect, UIEffect
+      objectReference: {fileID: 0}
+    - target: {fileID: 8275188840507794060, guid: 2208daae608075e4ea7ba6d033fb52d9, type: 3}
+      propertyPath: _printFinished.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8275188840507794060, guid: 2208daae608075e4ea7ba6d033fb52d9, type: 3}
+      propertyPath: _printFinished.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2208daae608075e4ea7ba6d033fb52d9, type: 3}
@@ -1110,13 +1134,37 @@ PrefabInstance:
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 1683147687512773850, guid: 8d1d467becf75ab439d9b5931210e54d, type: 3}
+      propertyPath: _selected.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1683147687512773850, guid: 8d1d467becf75ab439d9b5931210e54d, type: 3}
+      propertyPath: _selected.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1683147687512773850, guid: 8d1d467becf75ab439d9b5931210e54d, type: 3}
       propertyPath: _selected.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 378180564}
+      objectReference: {fileID: 1054373899}
     - target: {fileID: 1683147687512773850, guid: 8d1d467becf75ab439d9b5931210e54d, type: 3}
       propertyPath: _selected.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
       objectReference: {fileID: 1054373899}
+    - target: {fileID: 1683147687512773850, guid: 8d1d467becf75ab439d9b5931210e54d, type: 3}
+      propertyPath: _selected.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: WaitUnlockAndShow
+      objectReference: {fileID: 0}
+    - target: {fileID: 1683147687512773850, guid: 8d1d467becf75ab439d9b5931210e54d, type: 3}
+      propertyPath: _selected.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: WaitUnlockAndShow
+      objectReference: {fileID: 0}
+    - target: {fileID: 1683147687512773850, guid: 8d1d467becf75ab439d9b5931210e54d, type: 3}
+      propertyPath: _selected.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: UITransitionEffectLock, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1683147687512773850, guid: 8d1d467becf75ab439d9b5931210e54d, type: 3}
+      propertyPath: _selected.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_BoolArgument
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5158711089136866906, guid: 8d1d467becf75ab439d9b5931210e54d, type: 3}
       propertyPath: m_Name
       value: Character Them (1)
