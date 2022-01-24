@@ -4,21 +4,33 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
+[RequireComponent(typeof(Button))]
 public class CharacterBodyPartSelector : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
+    [SerializeField] [Required] Button _button;
     [SerializeField] [Required] UIEffect _uiEffect;
     [SerializeField] [Required] Image _image;
     [SerializeField] SpriteUnityEvent _selected;
     [ShowNonSerializedField] bool _isSelected;
 
+    void OnValidate()
+    {
+        _button = GetComponent<Button>();
+    }
+
     public void OnPointerEnter(PointerEventData eventData)
     {
+        if (!_button.enabled)
+        {
+            return;
+        }
+        
         _uiEffect.effectMode = EffectMode.Sepia;
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        if (_isSelected)
+        if (!_button.enabled || _isSelected)
         {
             return;
         }
