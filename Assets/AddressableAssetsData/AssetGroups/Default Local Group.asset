@@ -240,6 +240,14 @@ MonoBehaviour:
     m_Address: Assets/_Project/_Art/capa.jpg
     m_ReadOnly: 0
     m_SerializedLabels: []
+  - m_GUID: ba3fd864a88e24d469924f0f4412fa00
+    m_Address: Assets/_Project/_Art/borda/personagens eu pernas borda.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: c94a6edc15545e84ea8872f1bfcf3d59
+    m_Address: "Assets/_Project/_Art/borda/personagens eu bra\xE7o borda.png"
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: ac1bdeb3138bf53428d372bcabff45c3, type: 2}
   m_SchemaSet:

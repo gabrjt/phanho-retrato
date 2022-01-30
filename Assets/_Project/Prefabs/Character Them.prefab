@@ -223,6 +223,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03e53f4b2952bb949a2dd9675a8b6abe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _button: {fileID: 1096847296}
   _uiEffect: {fileID: 1635568677976226581}
   _image: {fileID: 5158711088010829233}
   _selected:
@@ -330,7 +331,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: e2ae62efdd3f9124089a6b61ce555a97, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b8df70b7329adc744ac03d98bb056684, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -407,7 +408,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: eb439029e98665248b5a20190fa30740, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0d5cc51f185cf184d8e82b01dab996dd, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
