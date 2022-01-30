@@ -218,6 +218,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Character
       objectReference: {fileID: 0}
+    - target: {fileID: 3414541068373590385, guid: 6221d1bc1f77f6f449729b84543aad42, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -31
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6221d1bc1f77f6f449729b84543aad42, type: 3}
 --- !u!1001 &378180560
@@ -233,11 +237,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 272806493046723943, guid: 2208daae608075e4ea7ba6d033fb52d9, type: 3}
       propertyPath: m_fontSize
-      value: 62.45
+      value: 36.75
       objectReference: {fileID: 0}
     - target: {fileID: 2348047444236403183, guid: 2208daae608075e4ea7ba6d033fb52d9, type: 3}
       propertyPath: m_text
       value: 2/11
+      objectReference: {fileID: 0}
+    - target: {fileID: 2348047444236403183, guid: 2208daae608075e4ea7ba6d033fb52d9, type: 3}
+      propertyPath: m_fontSize
+      value: 36.75
       objectReference: {fileID: 0}
     - target: {fileID: 4114563150371599071, guid: 2208daae608075e4ea7ba6d033fb52d9, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size

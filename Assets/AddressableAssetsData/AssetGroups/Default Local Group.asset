@@ -232,6 +232,10 @@ MonoBehaviour:
     m_Address: Assets/_Project/_Art/simplicity2/simplicity.ttf
     m_ReadOnly: 0
     m_SerializedLabels: []
+  - m_GUID: 5fd93217c2679f9459c31067b591307d
+    m_Address: "Assets/_Project/_Art/bot\xE3o small.png"
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: ac1bdeb3138bf53428d372bcabff45c3, type: 2}
   m_SchemaSet:
