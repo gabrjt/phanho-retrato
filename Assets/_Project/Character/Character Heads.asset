@@ -13,23 +13,23 @@ MonoBehaviour:
   m_Name: Character Heads
   m_EditorClassIdentifier: 
   _assetReferences:
-  - m_AssetGUID: f94e4d3ea0cb91a4b9e457b052c4081f
-    m_SubObjectName: "cabe\xE7a 1 peixe"
+  - m_AssetGUID: e5b1fa06f4b3c5c468c7a0a42ece0d1b
+    m_SubObjectName: "cabe\xE7a peixe"
     m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-    m_EditorAssetChanged: 1
-  - m_AssetGUID: 18943b8fb40dfa547abde72c4951c9ae
-    m_SubObjectName: "cabe\xE7a 2 cacatua"
+    m_EditorAssetChanged: 0
+  - m_AssetGUID: 308820755d0603042bea50f29d36012c
+    m_SubObjectName: "cabe\xE7a cacatua"
     m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-    m_EditorAssetChanged: 1
-  - m_AssetGUID: bbb526247264e91438b1c34f16433dbd
-    m_SubObjectName: "cabe\xE7a 3 touro"
+    m_EditorAssetChanged: 0
+  - m_AssetGUID: fd2ea12a50a87e749aab20d08e5e597e
+    m_SubObjectName: "cabe\xE7a touro"
     m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-    m_EditorAssetChanged: 1
-  - m_AssetGUID: ae82eaa9d234ee34eb69915a5b02ca4a
-    m_SubObjectName: "cabe\xE7a 4 girafa"
+    m_EditorAssetChanged: 0
+  - m_AssetGUID: 41484bd26c5fa444f9b707828a20165a
+    m_SubObjectName: "cabe\xE7a girafa"
     m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-    m_EditorAssetChanged: 1
+    m_EditorAssetChanged: 0

@@ -273,7 +273,7 @@ PrefabInstance:
     - target: {fileID: 5158711088010829233, guid: 8d1d467becf75ab439d9b5931210e54d, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: e50de3085e91b264da7d163250b0acd9, type: 3}
+      objectReference: {fileID: 21300000, guid: 07b66b452727f0f49a5ed28750820b79, type: 3}
     - target: {fileID: 5158711088010829239, guid: 8d1d467becf75ab439d9b5931210e54d, type: 3}
       propertyPath: m_Name
       value: Character
@@ -293,7 +293,7 @@ PrefabInstance:
     - target: {fileID: 5158711088908132207, guid: 8d1d467becf75ab439d9b5931210e54d, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 3bddb7cc884abf44f947289255dcf93e, type: 3}
+      objectReference: {fileID: 21300000, guid: 06c76503816d9a84f8d1b9a84bf1aabe, type: 3}
     - target: {fileID: 5158711089136866906, guid: 8d1d467becf75ab439d9b5931210e54d, type: 3}
       propertyPath: m_Name
       value: Character Them (4)
@@ -586,7 +586,7 @@ PrefabInstance:
     - target: {fileID: 5158711088010829233, guid: 8d1d467becf75ab439d9b5931210e54d, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: e50de3085e91b264da7d163250b0acd9, type: 3}
+      objectReference: {fileID: 21300000, guid: 07b66b452727f0f49a5ed28750820b79, type: 3}
     - target: {fileID: 5158711088010829239, guid: 8d1d467becf75ab439d9b5931210e54d, type: 3}
       propertyPath: m_Name
       value: Character
@@ -606,7 +606,7 @@ PrefabInstance:
     - target: {fileID: 5158711088908132207, guid: 8d1d467becf75ab439d9b5931210e54d, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 480d9bef08f49da41a8746eef041ad74, type: 3}
+      objectReference: {fileID: 21300000, guid: c260af84088f2f24d8b9a9b1a62ed300, type: 3}
     - target: {fileID: 5158711089136866906, guid: 8d1d467becf75ab439d9b5931210e54d, type: 3}
       propertyPath: m_Name
       value: Character Them (2)
@@ -899,7 +899,7 @@ PrefabInstance:
     - target: {fileID: 5158711088010829233, guid: 8d1d467becf75ab439d9b5931210e54d, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: e50de3085e91b264da7d163250b0acd9, type: 3}
+      objectReference: {fileID: 21300000, guid: 07b66b452727f0f49a5ed28750820b79, type: 3}
     - target: {fileID: 5158711088010829239, guid: 8d1d467becf75ab439d9b5931210e54d, type: 3}
       propertyPath: m_Name
       value: Character
@@ -919,7 +919,7 @@ PrefabInstance:
     - target: {fileID: 5158711088908132207, guid: 8d1d467becf75ab439d9b5931210e54d, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: d66b8eec83f3c4648865933105af74d2, type: 3}
+      objectReference: {fileID: 21300000, guid: 208cdbbb443ba36458b485ddcbfe6e32, type: 3}
     - target: {fileID: 5158711089136866906, guid: 8d1d467becf75ab439d9b5931210e54d, type: 3}
       propertyPath: m_Name
       value: Character Them (3)
@@ -1601,7 +1601,7 @@ PrefabInstance:
     - target: {fileID: 5158711088010829233, guid: 8d1d467becf75ab439d9b5931210e54d, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: e50de3085e91b264da7d163250b0acd9, type: 3}
+      objectReference: {fileID: 21300000, guid: 07b66b452727f0f49a5ed28750820b79, type: 3}
     - target: {fileID: 5158711088010829239, guid: 8d1d467becf75ab439d9b5931210e54d, type: 3}
       propertyPath: m_Name
       value: Character
@@ -1625,7 +1625,7 @@ PrefabInstance:
     - target: {fileID: 5158711088908132207, guid: 8d1d467becf75ab439d9b5931210e54d, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: d62e8aeabe3cbaa42a29b81ac100bfc2, type: 3}
+      objectReference: {fileID: 21300000, guid: 08c15208603b7514d9fc3ad5182d5091, type: 3}
     - target: {fileID: 5158711089136866906, guid: 8d1d467becf75ab439d9b5931210e54d, type: 3}
       propertyPath: m_Name
       value: Character Them (1)

@@ -13,23 +13,23 @@ MonoBehaviour:
   m_Name: Character Tails
   m_EditorClassIdentifier: 
   _assetReferences:
-  - m_AssetGUID: e2ae62efdd3f9124089a6b61ce555a97
-    m_SubObjectName: rabo 1 peixe
+  - m_AssetGUID: b8df70b7329adc744ac03d98bb056684
+    m_SubObjectName: rabo peixe
     m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-    m_EditorAssetChanged: 1
-  - m_AssetGUID: 7ca4325f586d0f54d8db218ea4309177
-    m_SubObjectName: rabo 2 jacare
+    m_EditorAssetChanged: 0
+  - m_AssetGUID: ab9ce275ca57e854ba358bed66b47980
+    m_SubObjectName: rabo jacare
     m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-    m_EditorAssetChanged: 1
-  - m_AssetGUID: e0b99aa166f6cc9499eaa8232a3a5a9e
-    m_SubObjectName: rabo 3 lobo
+    m_EditorAssetChanged: 0
+  - m_AssetGUID: 833b6a1cdfb7a87429b553f51f7b7525
+    m_SubObjectName: rabo lobo
     m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-    m_EditorAssetChanged: 1
-  - m_AssetGUID: 292529100ced80e48affe538728faa66
-    m_SubObjectName: "rabo 4 on\xE7a"
+    m_EditorAssetChanged: 0
+  - m_AssetGUID: 19212fcc1c9334e46bba95641d09fcf6
+    m_SubObjectName: "rabo on\xE7a"
     m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-    m_EditorAssetChanged: 1
+    m_EditorAssetChanged: 0

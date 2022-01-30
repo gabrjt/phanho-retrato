@@ -13,23 +13,23 @@ MonoBehaviour:
   m_Name: Character Legs
   m_EditorClassIdentifier: 
   _assetReferences:
-  - m_AssetGUID: 64e93b954ce3187438e3ca50a2cabeb6
-    m_SubObjectName: pernas 1 ave
+  - m_AssetGUID: 0c159a8c5b2aff347b7cd3f1a7be8802
+    m_SubObjectName: perna ave
     m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-    m_EditorAssetChanged: 1
-  - m_AssetGUID: 60f535e708ce92a488b56ff2d5d651bf
-    m_SubObjectName: pernas 2 cachorro
+    m_EditorAssetChanged: 0
+  - m_AssetGUID: f8894057075940744b5a537632ba411b
+    m_SubObjectName: perna cachorro
     m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-    m_EditorAssetChanged: 1
-  - m_AssetGUID: 5653c7b51d8ec694bade0bf50481cf82
-    m_SubObjectName: pernas 3 polvo
+    m_EditorAssetChanged: 0
+  - m_AssetGUID: c0b8d6bd7026e4e42a2156a928e45be5
+    m_SubObjectName: perna polvo
     m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-    m_EditorAssetChanged: 1
-  - m_AssetGUID: adf1a135c4d2a1b44bec7a4e62f0a22f
-    m_SubObjectName: pernas 4 urso
+    m_EditorAssetChanged: 0
+  - m_AssetGUID: 31f0ca40a2b8d04488f0b00e660d852b
+    m_SubObjectName: pernas urso
     m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-    m_EditorAssetChanged: 1
+    m_EditorAssetChanged: 0

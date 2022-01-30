@@ -293,7 +293,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: dd0fd5eccad615648acffbd796388a48, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 76a3a62f3c5f65b4a98e22c9abef6534, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -330,12 +330,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2348047444236403183, guid: 2208daae608075e4ea7ba6d033fb52d9, type: 3}
-      propertyPath: m_text
-      value: '1/11
-
-'
-      objectReference: {fileID: 0}
     - target: {fileID: 4114563150371599071, guid: 2208daae608075e4ea7ba6d033fb52d9, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 1

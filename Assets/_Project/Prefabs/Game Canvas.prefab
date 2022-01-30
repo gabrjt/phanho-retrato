@@ -524,7 +524,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 1 / 11
+  m_text: '1/11
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b6c471ed3dd21b44e95695c6b4e73376, type: 2}
   m_sharedMaterial: {fileID: 4253490823260882181, guid: b6c471ed3dd21b44e95695c6b4e73376, type: 2}
@@ -838,7 +840,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: c66965fc27fb12e41b729ff1905d048f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f687b32c4e174f34eb0a5de48b6153d6, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
