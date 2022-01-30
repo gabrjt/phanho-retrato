@@ -261,6 +261,14 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - scenes
+  - m_GUID: b6c471ed3dd21b44e95695c6b4e73376
+    m_Address: Assets/_Project/_Art/simplicity2/simplicity SDF.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 5dfd9b891b8a8d8499689b61ba0bef8e
+    m_Address: Assets/_Project/_Art/simplicity2/simplicity.ttf
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: ac1bdeb3138bf53428d372bcabff45c3, type: 2}
   m_SchemaSet:

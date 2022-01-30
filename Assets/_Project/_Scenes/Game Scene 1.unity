@@ -320,7 +320,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -250, y: 50}
+  m_AnchoredPosition: {x: -250, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &7248343256823987767
@@ -330,13 +330,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 272806493046723943, guid: 2208daae608075e4ea7ba6d033fb52d9, type: 3}
+    - target: {fileID: 2348047444236403183, guid: 2208daae608075e4ea7ba6d033fb52d9, type: 3}
       propertyPath: m_text
-      value: "pra voc\xEA se conhecer"
-      objectReference: {fileID: 0}
-    - target: {fileID: 272806493046723943, guid: 2208daae608075e4ea7ba6d033fb52d9, type: 3}
-      propertyPath: m_fontSize
-      value: 71.4
+      value: '1/11
+
+'
       objectReference: {fileID: 0}
     - target: {fileID: 4114563150371599071, guid: 2208daae608075e4ea7ba6d033fb52d9, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
