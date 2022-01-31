@@ -4,18 +4,20 @@ using UnityEngine;
 [CreateAssetMenu]
 public class CharacterBodyParts : ScriptableObject, IDisposable
 {
-    [SerializeField] Sprite _head;
-    [SerializeField] Sprite _arms;
-    [SerializeField] Sprite _legs;
-    [SerializeField] Sprite _tail;
+    [SerializeField] CharacterBodyPart _head;
+    [SerializeField] CharacterBodyPart _arms;
+    [SerializeField] CharacterBodyPart _legs;
+    [SerializeField] CharacterBodyPart _tail;
 
-    public Sprite Head => _head;
+    public CharacterBodyPart Head => _head;
 
-    public Sprite Arms => _arms;
+    public CharacterBodyPart Arms => _arms;
 
-    public Sprite Legs => _legs;
+    public CharacterBodyPart Legs => _legs;
 
-    public Sprite Tail => _tail;
+    public CharacterBodyPart Tail => _tail;
+
+    public int ID => _tail.ID * (4 ^ 0) + _legs.ID * (4 ^ 1) + _arms.ID * (4 ^ 2) + _head.ID * (4 ^ 3);
 
     void OnEnable()
     {
@@ -27,23 +29,23 @@ public class CharacterBodyParts : ScriptableObject, IDisposable
         _head = _arms = _legs = _tail = null;
     }
 
-    public void SetHead(Sprite sprite)
+    public void SetHead(CharacterBodyPart characterBodyPart)
     {
-        _head = sprite;
+        _head = characterBodyPart;
     }
 
-    public void SetArms(Sprite sprite)
+    public void SetArms(CharacterBodyPart characterBodyPart)
     {
-        _arms = sprite;
+        _arms = characterBodyPart;
     }
 
-    public void SetLegs(Sprite sprite)
+    public void SetLegs(CharacterBodyPart characterBodyPart)
     {
-        _legs = sprite;
+        _legs = characterBodyPart;
     }
 
-    public void SetTail(Sprite sprite)
+    public void SetTail(CharacterBodyPart characterBodyPart)
     {
-        _tail = sprite;
+        _tail = characterBodyPart;
     }
 }

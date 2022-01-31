@@ -248,6 +248,142 @@ MonoBehaviour:
     m_Address: "Assets/_Project/_Art/borda/personagens eu bra\xE7o borda.png"
     m_ReadOnly: 0
     m_SerializedLabels: []
+  - m_GUID: 613e74176bd9cb349b9e9839036141ca
+    m_Address: Assets/_Project/_Art/espelho.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: c0b6c84efa71b274ea80afd9df6dfe41
+    m_Address: Assets/_Project/_Scenes/Game Scene 11.unity
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 168fdb2058ca251418cfb9c71b4694e2
+    m_Address: Assets/_Project/_Art/resultados/resultados perna polvo.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: e2031e7b52aa8dd4a9d3cc84d2da6b68
+    m_Address: "Assets/_Project/_Art/resultados/ba\xE7o sapo.png"
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 3939ae6c8e1726f45bc3abd96553e9bc
+    m_Address: "Assets/_Project/_Art/resultados/resultados bra\xE7o ave.png"
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 86a643601c4d5524a813b7c88a824c4b
+    m_Address: "Assets/_Project/_Art/resultados/resultados bra\xE7o pregui\xE7a.png"
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 424293cdc3e76ea46be6beb5754ae6a7
+    m_Address: "Assets/_Project/_Art/resultados/resultados bra\xE7o carangueijo.png"
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 896fa80549b13d4469fd0f4f0f937cd0
+    m_Address: Assets/_Project/_Art/resultados/perna urso.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 81ba6ef9c733b4946a58b07632fc80f1
+    m_Address: "Assets/_Project/_Art/resultados/resultado cabe\xE7a girafa.png"
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 8e6582e8099878649ac7e7afee4c3daf
+    m_Address: Assets/_Project/_Art/resultados/resultado rabo peixe.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 1fe9c70de1a533e4580398d4ff1f1518
+    m_Address: "Assets/_Project/_Art/resultados/resultados rabo on\xE7a.png"
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 673c2de7a5780d44eb9d56881971a3bf
+    m_Address: Assets/_Project/_Art/resultados/resultados rabo jacare.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: d76750b0889394a42b77956ebb097e78
+    m_Address: Assets/_Project/_Art/resultados/resultado perna cachorro.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 7eaf379a77ac9704ab41480f3f7c9879
+    m_Address: "Assets/_Project/_Art/resultados/resultados cabe\xE7a cacatua.png"
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 4aceb88d590007945a055bb63172e439
+    m_Address: Assets/_Project/_Art/resultados/resultados perna ave.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 8c19de212242d7e428177bea5c56407b
+    m_Address: Assets/_Project/_Art/resultados/resultados rabo lobo.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 7e4897d489b929340beecfe0a3c23fb2
+    m_Address: "Assets/_Project/_Art/resultados/resultados cabe\xE7a touro.png"
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: ca37e59e0faa9854bbf3c5e1e294e39c
+    m_Address: "Assets/_Project/_Art/resultados/resultados cabe\xE7a peixe.png"
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: b7b4de2403f236740aca3326bd6e61e1
+    m_Address: Character Tail Fish
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 1b7b971fa1c53cd48bfc6cdcf28aa1b7
+    m_Address: Character Tail Alligator
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 7b637b1ccd318624280e1fdb0fcc387a
+    m_Address: Character Tail Wolf
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 8158108c06e4979429df72c05c1aa3a6
+    m_Address: Character Tail Jaguar
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 52799c2a621df7d47aa3e7f0b63f7f40
+    m_Address: Character Arms Sloth
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 1c98c519d5782a24e9047039b3196ab4
+    m_Address: Character Arms Bird
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 0d27ecd8eca2b06488a4171cae175db5
+    m_Address: Character Arms Crab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 1f77acd7799576944a6f087233c5a618
+    m_Address: Character Arms Frog
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 133f72494208b144aaa297bf81f22787
+    m_Address: Character Legs Bird
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 5d4326e4d75a391428c6be7cb1641bf5
+    m_Address: Character Legs Bear
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 5f0f338ba601aae42b52a33cbba7d8fc
+    m_Address: Character Legs Octupus
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 74bf0012157effd458ab5c2fcb3a35af
+    m_Address: Character Legs Dog
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 28327792deb209f48832061641246ca1
+    m_Address: Character Head Fish
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 1d0187dc611663c419f6643ccf958097
+    m_Address: Character Head Cockatoo
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 6cd73fe8ef29dd543850c59c95cd8f7b
+    m_Address: Character Head Bull
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 0b5790f714e935f468cdaa6603239029
+    m_Address: Character Head Giraffe
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: ac1bdeb3138bf53428d372bcabff45c3, type: 2}
   m_SchemaSet:

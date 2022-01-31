@@ -223,6 +223,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03e53f4b2952bb949a2dd9675a8b6abe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _characterBodyPart: {fileID: 11400000, guid: b7b4de2403f236740aca3326bd6e61e1, type: 2}
   _button: {fileID: 1096847296}
   _uiEffect: {fileID: 1635568677976226581}
   _image: {fileID: 5158711088010829233}

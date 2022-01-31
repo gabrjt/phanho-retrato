@@ -211,6 +211,10 @@ PrefabInstance:
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 1683147687512773850, guid: 8d1d467becf75ab439d9b5931210e54d, type: 3}
+      propertyPath: _characterBodyPart
+      value: 
+      objectReference: {fileID: 11400000, guid: 5d4326e4d75a391428c6be7cb1641bf5, type: 2}
+    - target: {fileID: 1683147687512773850, guid: 8d1d467becf75ab439d9b5931210e54d, type: 3}
       propertyPath: _selected.m_PersistentCalls.m_Calls.Array.size
       value: 2
       objectReference: {fileID: 0}
@@ -475,6 +479,10 @@ PrefabInstance:
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 1683147687512773850, guid: 8d1d467becf75ab439d9b5931210e54d, type: 3}
+      propertyPath: _characterBodyPart
+      value: 
+      objectReference: {fileID: 11400000, guid: 74bf0012157effd458ab5c2fcb3a35af, type: 2}
+    - target: {fileID: 1683147687512773850, guid: 8d1d467becf75ab439d9b5931210e54d, type: 3}
       propertyPath: _selected.m_PersistentCalls.m_Calls.Array.size
       value: 2
       objectReference: {fileID: 0}
@@ -738,6 +746,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 1683147687512773850, guid: 8d1d467becf75ab439d9b5931210e54d, type: 3}
+      propertyPath: _characterBodyPart
+      value: 
+      objectReference: {fileID: 11400000, guid: 5f0f338ba601aae42b52a33cbba7d8fc, type: 2}
     - target: {fileID: 1683147687512773850, guid: 8d1d467becf75ab439d9b5931210e54d, type: 3}
       propertyPath: _selected.m_PersistentCalls.m_Calls.Array.size
       value: 2
@@ -1390,6 +1402,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 1683147687512773850, guid: 8d1d467becf75ab439d9b5931210e54d, type: 3}
+      propertyPath: _characterBodyPart
+      value: 
+      objectReference: {fileID: 11400000, guid: 133f72494208b144aaa297bf81f22787, type: 2}
     - target: {fileID: 1683147687512773850, guid: 8d1d467becf75ab439d9b5931210e54d, type: 3}
       propertyPath: _selected.m_PersistentCalls.m_Calls.Array.size
       value: 2

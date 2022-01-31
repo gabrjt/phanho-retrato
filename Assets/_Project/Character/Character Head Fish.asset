@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef934f2b0b5d4ac99c609dc7d1668c15, type: 3}
+  m_Name: Character Head Fish
+  m_EditorClassIdentifier: 
+  _id: 0
+  _name: "Cabe\xE7a Peixe"
+  _storyImage: {fileID: 21300000, guid: e5b1fa06f4b3c5c468c7a0a42ece0d1b, type: 3}
+  _resultImage: {fileID: 21300000, guid: ca37e59e0faa9854bbf3c5e1e294e39c, type: 3}

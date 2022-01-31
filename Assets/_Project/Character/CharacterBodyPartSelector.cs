@@ -1,21 +1,26 @@
 using Coffee.UIEffects;
 using NaughtyAttributes;
 using UnityEngine;
+using UnityEngine.Assertions;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(Button))]
 public class CharacterBodyPartSelector : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
+    [SerializeField] [Required] CharacterBodyPart _characterBodyPart;
     [SerializeField] [Required] Button _button;
     [SerializeField] [Required] UIEffect _uiEffect;
     [SerializeField] [Required] Image _image;
-    [SerializeField] SpriteUnityEvent _selected;
+    [SerializeField] CharacterBodyPartUnityEvent _selected;
     [ShowNonSerializedField] bool _isSelected;
 
     void OnValidate()
     {
         _button = GetComponent<Button>();
+        _image.sprite = _characterBodyPart.StoryImage;
+
+        Assert.IsNotNull(_image.sprite);
     }
 
     public void OnPointerEnter(PointerEventData eventData)
@@ -48,6 +53,6 @@ public class CharacterBodyPartSelector : MonoBehaviour, IPointerEnterHandler, IP
     {
         SetSelected(true);
 
-        _selected.Invoke(_image.sprite);
+        _selected.Invoke(_characterBodyPart);
     }
 }

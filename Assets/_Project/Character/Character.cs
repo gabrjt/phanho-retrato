@@ -13,10 +13,10 @@ public class Character : MonoBehaviour
 
     void OnEnable()
     {
-        _head.enabled = _head.sprite = _bodyParts.Head;
-        _arms.enabled = _arms.sprite = _bodyParts.Arms;
-        _legs.enabled = _legs.sprite = _bodyParts.Legs;
-        _tail.enabled = _tail.sprite = _bodyParts.Tail;
+        _head.enabled = _head.sprite = _bodyParts.Head ? _bodyParts.Head.StoryImage : null;
+        _arms.enabled = _arms.sprite = _bodyParts.Arms ? _bodyParts.Arms.StoryImage : null;
+        _legs.enabled = _legs.sprite = _bodyParts.Legs ? _bodyParts.Legs.StoryImage : null;
+        _tail.enabled = _tail.sprite = _bodyParts.Tail ? _bodyParts.Tail.StoryImage : null;
         _self.enabled = !(_head.enabled && _arms.enabled && _legs.enabled && _tail.enabled);
     }
 

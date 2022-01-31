@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef934f2b0b5d4ac99c609dc7d1668c15, type: 3}
+  m_Name: Character Legs Bear
+  m_EditorClassIdentifier: 
+  _id: 3
+  _name: Pernas Urso
+  _storyImage: {fileID: 21300000, guid: 31f0ca40a2b8d04488f0b00e660d852b, type: 3}
+  _resultImage: {fileID: 21300000, guid: 896fa80549b13d4469fd0f4f0f937cd0, type: 3}
