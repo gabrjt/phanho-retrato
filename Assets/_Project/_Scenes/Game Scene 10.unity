@@ -427,8 +427,8 @@ MonoBehaviour:
     play: 0
     initialPlayDelay: 0
     duration: 1
-    loop: 0
-    loopDelay: 0
+    loop: 1
+    loopDelay: 10
     updateMode: 0
 --- !u!1001 &6574686589535881151
 PrefabInstance:
