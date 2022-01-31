@@ -180,6 +180,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 11400000, guid: e53f4280b4313a44ebf49eaf1ced4687, type: 2}
+        m_TargetAssemblyTypeName: SessionSave, Assembly-CSharp
+        m_MethodName: End
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 4114563151183597656}
         m_TargetAssemblyTypeName: CanvasRenderTexture, Assembly-CSharp
         m_MethodName: RenderTexture
@@ -239,7 +251,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36.7
+  m_fontSize: 36.8
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -380,6 +392,10 @@ PrefabInstance:
       propertyPath: _text
       value: 
       objectReference: {fileID: 2348047444479251007}
+    - target: {fileID: 5142798279502850920, guid: 608950317a1b60a4db1211b607f566eb, type: 3}
+      propertyPath: showID
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 608950317a1b60a4db1211b607f566eb, type: 3}
 --- !u!114 &3320251886749454721

@@ -321,12 +321,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2348195e868b4f0e9ac53c7dbc7695d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _bodyParts: {fileID: 11400000, guid: c940bcc618c6fa943be2684719ef12c5, type: 2}
+  _characterBodyParts: {fileID: 11400000, guid: c940bcc618c6fa943be2684719ef12c5, type: 2}
   _head: {fileID: 2940859667420963716}
   _arms: {fileID: 2940859666377221600}
   _legs: {fileID: 2940859666674478831}
   _tail: {fileID: 2940859668442147079}
   _text: {fileID: 0}
+  showID: 0
 --- !u!1 &2940859668442147077
 GameObject:
   m_ObjectHideFlags: 0

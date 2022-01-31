@@ -1,4 +1,5 @@
 ﻿using System;
+using Unity.Mathematics;
 using UnityEngine;
 
 [CreateAssetMenu]
@@ -17,7 +18,7 @@ public class CharacterBodyParts : ScriptableObject, IDisposable
 
     public CharacterBodyPart Tail => _tail;
 
-    public int ID => (_tail ? _tail.ID : 0) * (4 ^ 0) + (_legs ? _legs.ID : 0) * (4 ^ 1) + (_arms ? _arms.ID : 0) * (4 ^ 2) + (_head ? _head.ID : 0) * (4 ^ 3);
+    public int ID => (int)((_tail ? _tail.ID : 0) * math.pow(4, 0) + (_legs ? _legs.ID : 0) * math.pow(4, 1) + (_arms ? _arms.ID : 0) * math.pow(4, 2) + (_head ? _head.ID : 0) * math.pow(4, 3));
 
     void OnEnable()
     {

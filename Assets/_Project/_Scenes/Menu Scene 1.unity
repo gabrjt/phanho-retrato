@@ -412,9 +412,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11400000, guid: c940bcc618c6fa943be2684719ef12c5, type: 2}
-        m_TargetAssemblyTypeName: CharacterBodyParts, Assembly-CSharp
-        m_MethodName: Dispose
+      - m_Target: {fileID: 11400000, guid: e53f4280b4313a44ebf49eaf1ced4687, type: 2}
+        m_TargetAssemblyTypeName: SessionSave, Assembly-CSharp
+        m_MethodName: Begin
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
