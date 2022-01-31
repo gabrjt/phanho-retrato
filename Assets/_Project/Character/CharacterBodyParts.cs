@@ -17,7 +17,7 @@ public class CharacterBodyParts : ScriptableObject, IDisposable
 
     public CharacterBodyPart Tail => _tail;
 
-    public int ID => _tail.ID * (4 ^ 0) + _legs.ID * (4 ^ 1) + _arms.ID * (4 ^ 2) + _head.ID * (4 ^ 3);
+    public int ID => (_tail ? _tail.ID : 0) * (4 ^ 0) + (_legs ? _legs.ID : 0) * (4 ^ 1) + (_arms ? _arms.ID : 0) * (4 ^ 2) + (_head ? _head.ID : 0) * (4 ^ 3);
 
     void OnEnable()
     {
