@@ -384,6 +384,10 @@ MonoBehaviour:
     m_Address: Character Head Giraffe
     m_ReadOnly: 0
     m_SerializedLabels: []
+  - m_GUID: 608950317a1b60a4db1211b607f566eb
+    m_Address: Mirror
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: ac1bdeb3138bf53428d372bcabff45c3, type: 2}
   m_SchemaSet:

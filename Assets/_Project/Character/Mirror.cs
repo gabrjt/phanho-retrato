@@ -1,4 +1,5 @@
 ﻿using NaughtyAttributes;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,6 +10,7 @@ public class Mirror : MonoBehaviour
     [SerializeField] [Required] Image _arms;
     [SerializeField] [Required] Image _legs;
     [SerializeField] [Required] Image _tail;
+    [SerializeField] [Required] TMP_Text _text;
 
     void OnEnable()
     {
@@ -16,6 +18,8 @@ public class Mirror : MonoBehaviour
         _arms.enabled = _arms.sprite = _bodyParts.Arms ? _bodyParts.Arms.ResultImage : null;
         _legs.enabled = _legs.sprite = _bodyParts.Legs ? _bodyParts.Legs.ResultImage : null;
         _tail.enabled = _tail.sprite = _bodyParts.Tail ? _bodyParts.Tail.ResultImage : null;
+
+        _text.text = $"{_bodyParts.ID + 1}/256";
     }
 
     void OnDisable()
