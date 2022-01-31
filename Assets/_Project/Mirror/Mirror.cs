@@ -21,7 +21,7 @@ public class Mirror : MonoBehaviour
         _tail.enabled = _tail.sprite = _characterBodyParts.Tail ? _characterBodyParts.Tail.ResultImage : null;
 
         var result = showID ? _characterBodyParts.ID + 1 : 1;
-        
+
         _text.text = $"{result}/256";
     }
 

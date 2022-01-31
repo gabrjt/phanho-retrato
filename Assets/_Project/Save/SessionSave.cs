@@ -1,33 +1,35 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using NaughtyAttributes;
 using UnityEngine;
+using Debug = UnityEngine.Debug;
 
 [CreateAssetMenu]
 public class SessionSave : ScriptableObject
 {
     [SerializeField] [Required] CharacterBodyParts _characterBodyParts;
-    double _seconds;
+    readonly Stopwatch _stopwatch = new();
 
     [Button]
     public void Begin()
     {
         _characterBodyParts.Dispose();
-        _seconds = Time.realtimeSinceStartupAsDouble;
+        _stopwatch.Restart();
     }
 
     [Button]
     public void End()
     {
-        _seconds = Time.realtimeSinceStartupAsDouble - _seconds;
+        _stopwatch.Stop();
 
         Save(string.Empty, string.Empty);
     }
 
     async void Save(string username, string contact)
     {
-        var path = $"{Application.persistentDataPath}{Path.DirectorySeparatorChar}RESULTADOS.json";
+        var path = $"{Application.persistentDataPath}{Path.DirectorySeparatorChar}RESULTADOS_{DateTime.Now.Date:dd-MM-yyyy}.json";
 
         Results results;
 
@@ -58,7 +60,7 @@ public class SessionSave : ScriptableObject
             results = new Results {Values = new List<Result>()};
         }
 
-        results.Values.Add(new Result(results.Values.Count, username, contact, (int)(_seconds / 60), _characterBodyParts));
+        results.Values.Add(new Result(results.Values.Count, username, contact, _stopwatch.Elapsed.Minutes, _characterBodyParts));
 
         var file = new StreamWriter(path);
 

@@ -29,7 +29,7 @@ public class CharacterBodyPartSelector : MonoBehaviour, IPointerEnterHandler, IP
         {
             return;
         }
-        
+
         _uiEffect.effectMode = EffectMode.Sepia;
     }
 
