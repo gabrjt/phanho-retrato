@@ -22,9 +22,14 @@ public class SessionSave : ScriptableObject
     [Button]
     public void End()
     {
+        End(string.Empty, string.Empty);
+    }
+
+    public void End(string username, string contact)
+    {
         _stopwatch.Stop();
 
-        Save(string.Empty, string.Empty);
+        Save(username, contact);
     }
 
     async void Save(string username, string contact)
