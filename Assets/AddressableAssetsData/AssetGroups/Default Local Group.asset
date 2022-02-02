@@ -396,6 +396,10 @@ MonoBehaviour:
     m_Address: Session Save
     m_ReadOnly: 0
     m_SerializedLabels: []
+  - m_GUID: d81e5bef55acc4f2392dcb6053c8f765
+    m_Address: Assets/_Project/_Scenes/Tutorial Scene.unity
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: ac1bdeb3138bf53428d372bcabff45c3, type: 2}
   m_SchemaSet:
