@@ -2,6 +2,7 @@
 using Cysharp.Threading.Tasks;
 using NaughtyAttributes;
 using UnityEngine;
+using Random = Unity.Mathematics.Random;
 
 [RequireComponent(typeof(Mirror))]
 public class MirrorResultGenerator : MonoBehaviour
@@ -12,6 +13,7 @@ public class MirrorResultGenerator : MonoBehaviour
     [SerializeField] CharacterBodyPart[] _legsArray;
     [SerializeField] CharacterBodyPart[] _tailArray;
     readonly CancellationTokenContainer _cancellationToken = new();
+    Random _random = new (0xF);
 
     void Start()
     {
@@ -26,6 +28,18 @@ public class MirrorResultGenerator : MonoBehaviour
     void OnValidate()
     {
         _mirror = GetComponent<Mirror>();
+    }
+
+    public void SetRandomCharacterBodyParts()
+    {
+        var characterBodyParts = _mirror.CharacterBodyParts;
+
+        characterBodyParts.Dispose();
+
+        characterBodyParts.SetHead(_headArray[_random.NextInt(_headArray.Length)]);
+        characterBodyParts.SetArms(_armsArray[_random.NextInt(_armsArray.Length)]);
+        characterBodyParts.SetLegs(_legsArray[_random.NextInt(_legsArray.Length)]);
+        characterBodyParts.SetTail(_tailArray[_random.NextInt(_tailArray.Length)]);
     }
 
     [Button]

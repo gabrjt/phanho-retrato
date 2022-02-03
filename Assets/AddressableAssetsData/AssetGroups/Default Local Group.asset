@@ -404,6 +404,10 @@ MonoBehaviour:
     m_Address: Assets/_Project/_Scenes/Guestbook Scene.unity
     m_ReadOnly: 0
     m_SerializedLabels: []
+  - m_GUID: 470355db8a8d64f49aaf90c4b37b1627
+    m_Address: Session Save Email Sender
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: ac1bdeb3138bf53428d372bcabff45c3, type: 2}
   m_SchemaSet:

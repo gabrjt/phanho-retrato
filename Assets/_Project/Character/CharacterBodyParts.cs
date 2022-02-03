@@ -18,6 +18,8 @@ public class CharacterBodyParts : ScriptableObject, IDisposable
 
     public CharacterBodyPart Tail => _tail;
 
+    public CharacterBodyPartsData Data => new(this);
+
     public int ID => (int)((_tail ? _tail.ID : 0) * math.pow(4, 0) + (_legs ? _legs.ID : 0) * math.pow(4, 1) + (_arms ? _arms.ID : 0) * math.pow(4, 2) + (_head ? _head.ID : 0) * math.pow(4, 3));
 
     void OnEnable()
@@ -48,5 +50,32 @@ public class CharacterBodyParts : ScriptableObject, IDisposable
     public void SetTail(CharacterBodyPart characterBodyPart)
     {
         _tail = characterBodyPart;
+    }
+
+    [Serializable]
+    public struct CharacterBodyPartsData
+    {
+        public int TailID;
+        public string TailName;
+        public int LegsID;
+        public string LegsName;
+        public int ArmsID;
+        public string ArmsName;
+        public int HeadID;
+        public string HeadName;
+        public int CharacterID;
+
+        public CharacterBodyPartsData(CharacterBodyParts characterBodyParts)
+        {
+            TailID = characterBodyParts.Tail ? characterBodyParts.Tail.ID : -1;
+            TailName = characterBodyParts.Tail ? characterBodyParts.Tail.Name : string.Empty;
+            LegsID = characterBodyParts.Legs ? characterBodyParts.Legs.ID : -1;
+            LegsName = characterBodyParts.Legs ? characterBodyParts.Legs.Name : string.Empty;
+            ArmsID = characterBodyParts.Arms ? characterBodyParts.Arms.ID : -1;
+            ArmsName = characterBodyParts.Arms ? characterBodyParts.Arms.Name : string.Empty;
+            HeadID = characterBodyParts.Head ? characterBodyParts.Head.ID : -1;
+            HeadName = characterBodyParts.Head ? characterBodyParts.Head.Name : string.Empty;
+            CharacterID = characterBodyParts.ID;
+        }
     }
 }
