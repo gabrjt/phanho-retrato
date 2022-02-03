@@ -12,7 +12,7 @@ public class SessionSave : ScriptableObject
 {
     [SerializeField] [Required] CharacterBodyParts _characterBodyParts;
     [SerializeField] UnityEventSessionSaveResult _resultSaved;
-    readonly Dictionary<DateTime, string> _resultsPathDictionary = new();
+    readonly Dictionary<int, string> _resultsPathDictionary = new();
     readonly SemaphoreSlim _semaphore = new(1, 1);
     readonly Stopwatch _stopwatch = new();
 
@@ -45,11 +45,11 @@ public class SessionSave : ScriptableObject
 
     string GetResultsPath()
     {
-        var date = DateTime.Now.Date;
+        var key = DateTime.Now.DayOfYear;
 
-        if (!_resultsPathDictionary.TryGetValue(date, out var path))
+        if (!_resultsPathDictionary.TryGetValue(key, out var path))
         {
-            _resultsPathDictionary[date] = path = $"{Application.persistentDataPath}{Path.DirectorySeparatorChar}RESULTADOS_{DateTime.Now.Date:dd-MM-yyyy}.json";
+            _resultsPathDictionary[key] = path = $"{Application.persistentDataPath}{Path.DirectorySeparatorChar}RESULTADOS_{DateTime.Now.Date:dd-MM-yyyy}.json";
         }
 
         return path;
@@ -58,7 +58,7 @@ public class SessionSave : ScriptableObject
     async void Save(string username, string contact, int minutes, CharacterBodyParts.CharacterBodyPartsData characterBodyPartsData)
     {
         var path = GetResultsPath();
-        
+
         Results results;
 
         await _semaphore.WaitAsync();

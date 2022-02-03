@@ -13,7 +13,7 @@ public class MirrorResultGenerator : MonoBehaviour
     [SerializeField] CharacterBodyPart[] _legsArray;
     [SerializeField] CharacterBodyPart[] _tailArray;
     readonly CancellationTokenContainer _cancellationToken = new();
-    Random _random = new (0xF);
+    Random _random = new(0xF);
 
     void Start()
     {
