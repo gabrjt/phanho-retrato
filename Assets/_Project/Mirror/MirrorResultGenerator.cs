@@ -55,7 +55,7 @@ public class MirrorResultGenerator : MonoBehaviour
 
                         ScreenCapture.CaptureScreenshot($"{Application.persistentDataPath}{Path.DirectorySeparatorChar}{characterBodyParts.ID}.png");
 
-                        var cancelled = await UniTask.DelayFrame(1, PlayerLoopTiming.Update, _cancellationToken.CancellationToken).SuppressCancellationThrow();
+                        var cancelled = await UniTask.NextFrame(PlayerLoopTiming.Update, _cancellationToken.CancellationToken).SuppressCancellationThrow();
 
                         if (cancelled)
                         {
