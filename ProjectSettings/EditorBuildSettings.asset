@@ -5,10 +5,10 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
+  - enabled: 1
     path: Assets/_Project/_Scenes/Bootstrap.unity
     guid: a18b85938db901e4385e4a7a9a05747f
-  - enabled: 1
+  - enabled: 0
     path: Assets/_Project/_Scenes/ReflexoGenerator.unity
     guid: c66c812822edef448bdf09dc14b5c790
   m_configObjects:
