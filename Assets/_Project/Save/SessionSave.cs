@@ -8,19 +8,42 @@ using UnityEngine;
 using Debug = UnityEngine.Debug;
 
 [CreateAssetMenu]
-public class SessionSave : ScriptableObject
+public class SessionSave : ScriptableObject, IDisposable
 {
     [SerializeField] [Required] CharacterBodyParts _characterBodyParts;
     [SerializeField] UnityEventSessionSaveResult _resultSaved;
+    readonly CancellationTokenContainer _cancellationToken = new();
     readonly Dictionary<int, string> _resultsPathDictionary = new();
     readonly SemaphoreSlim _semaphore = new(1, 1);
     readonly Stopwatch _stopwatch = new();
+    bool _disposed;
+
+    public bool IsCreated => !_disposed;
 
     void OnDisable()
     {
+        Dispose();
+    }
+
+    public void Dispose()
+    {
+        _disposed = true;
+        _cancellationToken.Cancel();
         _resultsPathDictionary.Clear();
         _stopwatch.Reset();
         _semaphore.Dispose();
+    }
+
+    public void Clear()
+    {
+        _disposed = false;
+        _cancellationToken.Reset();
+        _stopwatch.Reset();
+    }
+
+    public void Cancel()
+    {
+        _cancellationToken.Cancel();
     }
 
     [Button]
@@ -59,9 +82,18 @@ public class SessionSave : ScriptableObject
     {
         var path = GetResultsPath();
 
-        Results results;
+        try
+        {
+            await _semaphore.WaitAsync(_cancellationToken.CancellationToken);
+        }
+        catch (Exception exception)
+        {
+            Debug.LogWarning($"{nameof(SessionSave)}::{nameof(Save)} failed: {exception}");
 
-        await _semaphore.WaitAsync();
+            return;
+        }
+
+        Results results;
 
         if (File.Exists(path))
         {
@@ -103,6 +135,11 @@ public class SessionSave : ScriptableObject
         file.Close();
 
         await file.DisposeAsync();
+
+        if (_disposed)
+        {
+            return;
+        }
 
         _semaphore.Release();
 
