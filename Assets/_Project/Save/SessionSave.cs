@@ -80,6 +80,11 @@ public class SessionSave : ScriptableObject, IDisposable
 
     async void Save(string username, string contact, int minutes, CharacterBodyParts.CharacterBodyPartsData characterBodyPartsData)
     {
+        void LogException(Exception exception)
+        {
+            Debug.LogWarning($"{nameof(SessionSave)}::{nameof(Save)} failed: {exception}");
+        }
+
         var path = GetResultsPath();
 
         try
@@ -88,7 +93,7 @@ public class SessionSave : ScriptableObject, IDisposable
         }
         catch (Exception exception)
         {
-            Debug.LogWarning($"{nameof(SessionSave)}::{nameof(Save)} failed: {exception}");
+            LogException(exception);
 
             return;
         }
@@ -97,24 +102,19 @@ public class SessionSave : ScriptableObject, IDisposable
 
         if (File.Exists(path))
         {
-            var streamReader = new StreamReader(path);
+            using var streamReader = new StreamReader(path);
 
             try
             {
                 results = JsonUtility.FromJson<Results>(await streamReader.ReadToEndAsync());
             }
-            catch (ArgumentException argumentException)
+            catch (ArgumentException exception)
             {
-                Debug.LogWarning(argumentException);
+                LogException(exception);
 
                 File.Delete(path);
 
                 results = new Results {Values = new List<Result>()};
-            }
-            finally
-            {
-                streamReader.Close();
-                streamReader.Dispose();
             }
         }
         else
@@ -126,15 +126,11 @@ public class SessionSave : ScriptableObject, IDisposable
 
         results.Values.Add(result);
 
-        var file = new StreamWriter(path);
+        await using var streamWriter = new StreamWriter(path);
 
-        await file.WriteAsync(JsonUtility.ToJson(results));
+        await streamWriter.WriteAsync(JsonUtility.ToJson(results));
 
-        Debug.Log($"{nameof(Save)}@{path}");
-
-        file.Close();
-
-        await file.DisposeAsync();
+        Debug.Log($"{nameof(Save)} {nameof(Results)} @ {path}");
 
         if (_disposed)
         {
