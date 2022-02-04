@@ -80,11 +80,6 @@ public class SessionSave : ScriptableObject, IDisposable
 
     async void Save(string username, string contact, int minutes, CharacterBodyParts.CharacterBodyPartsData characterBodyPartsData)
     {
-        void LogException(Exception exception)
-        {
-            Debug.LogWarning($"{nameof(SessionSave)}::{nameof(Save)} failed: {exception}");
-        }
-
         var path = GetResultsPath();
 
         try
@@ -93,7 +88,7 @@ public class SessionSave : ScriptableObject, IDisposable
         }
         catch (Exception exception)
         {
-            LogException(exception);
+            Debug.LogException(exception);
 
             return;
         }
@@ -110,7 +105,7 @@ public class SessionSave : ScriptableObject, IDisposable
             }
             catch (ArgumentException exception)
             {
-                LogException(exception);
+                Debug.LogException(exception);
 
                 File.Delete(path);
 

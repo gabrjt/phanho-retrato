@@ -405,11 +405,15 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
   - m_GUID: 470355db8a8d64f49aaf90c4b37b1627
-    m_Address: Session Save Email Sender
+    m_Address: Session Save Mail Sender
     m_ReadOnly: 0
     m_SerializedLabels: []
   - m_GUID: a01291a81be7fe740afeddcdba2631ee
     m_Address: Assets/_Project/Save/index.html
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 11fd3c30a3b584a4b88cfb31b9d8133b
+    m_Address: HTML Document Asset Reference Container
     m_ReadOnly: 0
     m_SerializedLabels: []
   m_ReadOnly: 0

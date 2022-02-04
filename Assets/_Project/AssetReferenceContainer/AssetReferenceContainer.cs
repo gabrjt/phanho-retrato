@@ -58,10 +58,15 @@ public class AssetReferenceContainer : ScriptableObject
         _cancellationToken.Reset();
     }
 
+    public Task<(bool, T)> LoadCurrentAsset<T>()
+        where T : Object
+    {
+        return LoadAsset<T>(Index);
+    }
+
     public async Task<(bool, T)> LoadAsset<T>(int index)
         where T : Object
     {
-        Assert.IsTrue(Application.isPlaying);
         Assert.IsTrue(IsValidIndex(index));
 
         var assetReference = _assetReferences[index];
