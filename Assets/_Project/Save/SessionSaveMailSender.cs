@@ -38,23 +38,7 @@ public class SessionSaveMailSender : ScriptableObject
 
     public void OnResultSaved(SessionSave.Result result)
     {
-        return;
-
-        var mail = new MailMessage();
-
-        mail.From = new MailAddress("gabr.j.t@gmail.com");
-        mail.To.Add("gabr.j.t@gmail.com");
-        mail.Subject = "Test Mail";
-        mail.Body = $"This is for testing SMTP mail from GMAIL <img src='data:image/png;base64,{result.ID}' />";
-
-        var smtpServer = new SmtpClient("smtp.gmail.com");
-        smtpServer.Port = 587;
-        smtpServer.Credentials = new NetworkCredential("gabr.j.t@gmail.com", "G@butops2029");
-        smtpServer.EnableSsl = true;
-        ServicePointManager.ServerCertificateValidationCallback = delegate { return true; };
-
-        smtpServer.Send(mail);
-        Debug.Log("success");
+        SendMail(result);
     }
 
     bool ServerCertificateValidationCallback(object sender, X509Certificate certificate, X509Chain chain, SslPolicyErrors sslpolicyerrors)
@@ -62,9 +46,12 @@ public class SessionSaveMailSender : ScriptableObject
         return true;
     }
 
-#if UNITY_EDITOR
-    [Button]
-    async void TestSendMail()
+    string GetFormattedMailBody(SessionSave.Result result, string htmlDocumentText)
+    {
+        return htmlDocumentText;
+    }
+
+    async void SendMail(SessionSave.Result result)
     {
         var (success, htmlDocument) = await _htmlDocumentAssetReference.LoadCurrentAsset<TextAsset>();
 
@@ -73,14 +60,13 @@ public class SessionSaveMailSender : ScriptableObject
             return;
         }
 
+        var to = result.Contact;
         using var mailMessage = new MailMessage {From = _mailAddress};
-
-        const string to = "gabr.j.t@gmail.com";
 
         mailMessage.To.Add(to);
         mailMessage.Subject = Subject;
         mailMessage.IsBodyHtml = true;
-        mailMessage.Body = htmlDocument.text;
+        mailMessage.Body = GetFormattedMailBody(result, htmlDocument.text);
 
         _htmlDocumentAssetReference.TryUnloadCurrentAsset();
 
@@ -98,14 +84,10 @@ public class SessionSaveMailSender : ScriptableObject
 
             if (args.Cancelled || mailSentResult.IsUnsent())
             {
-                Debug.LogWarning($"{nameof(SessionSaveMailSender)}::{nameof(TestSendMail)} cancelled mail send to {to}");
-
                 return;
             }
 
             mailSentResult.SetSent();
-
-            Debug.Log($"{nameof(SessionSaveMailSender)}::{nameof(TestSendMail)} successfully sent mail to {to}");
         };
 
         void CancelSend()
@@ -124,6 +106,24 @@ public class SessionSaveMailSender : ScriptableObject
         {
             _cancellationToken.Reset();
         }
+
+        if (mailSentResult.IsSent())
+        {
+            Debug.Log($"{nameof(SessionSaveMailSender)}::{nameof(SendMail)} successfully sent mail to {to}");
+        }
+        else
+        {
+            Debug.LogWarning($"{nameof(SessionSaveMailSender)}::{nameof(SendMail)} cancelled mail send to {to}");
+        }
+    }
+
+#if UNITY_EDITOR
+    [Button]
+    void TestSendMail()
+    {
+        var result = new SessionSave.Result {Contact = "gabr.j.t@gmail.com"};
+
+        SendMail(result);
     }
 #endif
 
