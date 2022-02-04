@@ -408,6 +408,10 @@ MonoBehaviour:
     m_Address: Session Save Email Sender
     m_ReadOnly: 0
     m_SerializedLabels: []
+  - m_GUID: a01291a81be7fe740afeddcdba2631ee
+    m_Address: Assets/_Project/Save/index.html
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: ac1bdeb3138bf53428d372bcabff45c3, type: 2}
   m_SchemaSet:

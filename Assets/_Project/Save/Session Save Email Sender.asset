@@ -12,3 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5dda3213aaa34910bc5a8291b2c3a6b9, type: 3}
   m_Name: Session Save Email Sender
   m_EditorClassIdentifier: 
+  _htmlDocumentAssetReference:
+    m_AssetGUID: a01291a81be7fe740afeddcdba2631ee
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
