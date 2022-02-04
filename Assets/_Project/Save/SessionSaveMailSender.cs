@@ -15,8 +15,8 @@ public class SessionSaveMailSender : ScriptableObject
     const string Subject = "[RETRATO] seu REFLEXO";
     [SerializeField] [Required] AssetReferenceContainer _htmlDocumentAssetReference;
     readonly CancellationTokenContainer _cancellationToken = new();
+    readonly NetworkCredential _credentials = new("reflexo.retrato@gmail.com", "retrato666");
     readonly MailAddress _mailAddress = new("reflexo.retrato@gmail.com");
-    readonly NetworkCredential _networkCredential = new("reflexo.retrato@gmail.com", "retrato666");
 
     void OnEnable()
     {
@@ -61,16 +61,18 @@ public class SessionSaveMailSender : ScriptableObject
         }
 
         var to = result.Contact;
-        using var mailMessage = new MailMessage {From = _mailAddress};
-
-        mailMessage.To.Add(to);
-        mailMessage.Subject = Subject;
-        mailMessage.IsBodyHtml = true;
-        mailMessage.Body = GetFormattedMailBody(result, htmlDocument.text);
+        using var mailMessage = new MailMessage
+        {
+            From = _mailAddress,
+            Subject = Subject,
+            IsBodyHtml = true,
+            Body = GetFormattedMailBody(result, htmlDocument.text),
+            To = {to}
+        };
 
         _htmlDocumentAssetReference.TryUnloadCurrentAsset();
 
-        using var smtpClient = new SmtpClient(Host) {Port = Port, Credentials = _networkCredential, EnableSsl = EnableSSL};
+        using var smtpClient = new SmtpClient(Host) {Port = Port, Credentials = _credentials, EnableSsl = EnableSSL};
         var mailSentResult = new MailSentResult();
 
         smtpClient.SendCompleted += (sender, args) =>
