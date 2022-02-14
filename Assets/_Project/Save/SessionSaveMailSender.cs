@@ -1,10 +1,12 @@
-﻿using System.Net;
+﻿using System;
+using System.Net;
 using System.Net.Mail;
 using System.Net.Security;
 using System.Security.Cryptography.X509Certificates;
 using Cysharp.Threading.Tasks;
 using NaughtyAttributes;
 using UnityEngine;
+using UnityEngine.Assertions;
 
 [CreateAssetMenu]
 public class SessionSaveMailSender : ScriptableObject
@@ -53,6 +55,16 @@ public class SessionSaveMailSender : ScriptableObject
 
     async void SendMail(SessionSave.Result result)
     {
+        var to = result.Contact;
+
+        if (string.IsNullOrEmpty(to))
+        {
+            return;
+        }
+
+        Assert.IsFalse(string.IsNullOrEmpty(result.Name));
+        Assert.IsFalse(string.IsNullOrEmpty(to));
+
         var (success, htmlDocument) = await _htmlDocumentAssetReference.LoadCurrentAsset<TextAsset>();
 
         if (!success)
@@ -60,62 +72,75 @@ public class SessionSaveMailSender : ScriptableObject
             return;
         }
 
-        var to = result.Contact;
-        using var mailMessage = new MailMessage
+        MailMessage mailMessage;
+
+        try
         {
-            From = _mailAddress,
-            Subject = Subject,
-            IsBodyHtml = true,
-            Body = GetFormattedMailBody(result, htmlDocument.text),
-            To = {to}
-        };
-
-        _htmlDocumentAssetReference.TryUnloadCurrentAsset();
-
-        using var smtpClient = new SmtpClient(Host) {Port = Port, Credentials = _credentials, EnableSsl = EnableSSL};
-        var mailSentResult = new MailSentResult();
-
-        smtpClient.SendCompleted += (sender, args) =>
-        {
-            if (args.Error != null)
+            mailMessage = new MailMessage
             {
-                Debug.LogException(args.Error);
+                From = _mailAddress,
+                Subject = Subject,
+                IsBodyHtml = true,
+                Body = GetFormattedMailBody(result, htmlDocument.text),
+                To = {to}
+            };
+        }
+        catch (FormatException exception)
+        {
+            Debug.LogException(exception);
 
-                return;
+            return;
+        }
+
+        using (mailMessage)
+        {
+            _htmlDocumentAssetReference.TryUnloadCurrentAsset();
+
+            using var smtpClient = new SmtpClient(Host) {Port = Port, Credentials = _credentials, EnableSsl = EnableSSL};
+            var mailSentResult = new MailSentResult();
+
+            smtpClient.SendCompleted += (sender, args) =>
+            {
+                if (args.Error != null)
+                {
+                    Debug.LogException(args.Error);
+
+                    return;
+                }
+
+                if (args.Cancelled || mailSentResult.IsUnsent())
+                {
+                    return;
+                }
+
+                mailSentResult.SetSent();
+            };
+
+            void CancelSend()
+            {
+                mailSentResult.SetUnsent();
+                smtpClient.SendAsyncCancel();
             }
 
-            if (args.Cancelled || mailSentResult.IsUnsent())
+            _cancellationToken.CancellationToken.Register(CancelSend);
+
+            smtpClient.SendMailAsync(mailMessage);
+
+            var cancelled = await UniTask.WaitUntil(mailSentResult.IsCompleted, PlayerLoopTiming.Update, _cancellationToken.CancellationToken).SuppressCancellationThrow();
+
+            if (!cancelled)
             {
-                return;
+                _cancellationToken.Reset();
             }
 
-            mailSentResult.SetSent();
-        };
-
-        void CancelSend()
-        {
-            mailSentResult.SetUnsent();
-            smtpClient.SendAsyncCancel();
-        }
-
-        _cancellationToken.CancellationToken.Register(CancelSend);
-
-        smtpClient.SendMailAsync(mailMessage);
-
-        var cancelled = await UniTask.WaitUntil(mailSentResult.IsCompleted, PlayerLoopTiming.Update, _cancellationToken.CancellationToken).SuppressCancellationThrow();
-
-        if (!cancelled)
-        {
-            _cancellationToken.Reset();
-        }
-
-        if (mailSentResult.IsSent())
-        {
-            Debug.Log($"{nameof(SessionSaveMailSender)}::{nameof(SendMail)} successfully sent mail to {to}");
-        }
-        else
-        {
-            Debug.LogWarning($"{nameof(SessionSaveMailSender)}::{nameof(SendMail)} cancelled mail send to {to}");
+            if (mailSentResult.IsSent())
+            {
+                Debug.Log($"{nameof(SessionSaveMailSender)}::{nameof(SendMail)} successfully sent mail to {to}");
+            }
+            else
+            {
+                Debug.LogWarning($"{nameof(SessionSaveMailSender)}::{nameof(SendMail)} cancelled mail send to {to}");
+            }
         }
     }
 

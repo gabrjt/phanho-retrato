@@ -154,7 +154,7 @@ public class SessionSave : ScriptableObject, IDisposable
 
         public Result(int id, string name, string contact, int minutes, CharacterBodyParts.CharacterBodyPartsData characterBodyPartsData)
         {
-            const string notAvailable = "N/D";
+            var notAvailable = string.Empty;
 
             ID = id;
             Name = string.IsNullOrEmpty(name) ? notAvailable : name;
