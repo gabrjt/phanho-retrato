@@ -19,11 +19,16 @@ public class Controls : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
+            Quit();
+        }
+    }
+
+    public static void Quit()
+    {
 #if UNITY_EDITOR
-            EditorApplication.isPlaying = false;
+        EditorApplication.isPlaying = false;
 #else
             Application.Quit();
 #endif
-        }
     }
 }

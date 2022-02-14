@@ -45,6 +45,15 @@ public class MirrorResultGenerator : MonoBehaviour
     [Button]
     async void GenerateAllResults()
     {
+        var path = $"{Application.persistentDataPath}{Path.DirectorySeparatorChar}RESULTADOS{Path.DirectorySeparatorChar}";
+
+        if (Directory.Exists(path))
+        {
+            Directory.Delete(path, true);
+        }
+
+        Directory.CreateDirectory(path);
+
         _cancellationToken.Cancel();
 
         var characterBodyParts = _mirror.CharacterBodyParts;
@@ -67,7 +76,7 @@ public class MirrorResultGenerator : MonoBehaviour
 
                         _mirror.SetImageSprites();
 
-                        ScreenCapture.CaptureScreenshot($"{Application.persistentDataPath}{Path.DirectorySeparatorChar}{characterBodyParts.ID}.png");
+                        ScreenCapture.CaptureScreenshot($"{path}{characterBodyParts.ID}.png");
 
                         var cancelled = await UniTask.NextFrame(PlayerLoopTiming.Update, _cancellationToken.CancellationToken).SuppressCancellationThrow();
 
@@ -79,5 +88,7 @@ public class MirrorResultGenerator : MonoBehaviour
                 }
             }
         }
+
+        Controls.Quit();
     }
 }

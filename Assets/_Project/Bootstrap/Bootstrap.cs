@@ -36,7 +36,9 @@ public class Bootstrap
             return;
         }
 
-        if (SceneManager.GetActiveScene().buildIndex == 0)
+        var activeScene = SceneManager.GetActiveScene();
+
+        if (activeScene.buildIndex == 0 && activeScene.name == "Bootstrap")
         {
             sceneLoader.LoadFirstScene();
 
