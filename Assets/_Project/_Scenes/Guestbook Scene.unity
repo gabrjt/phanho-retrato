@@ -1220,7 +1220,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 488693602}
         m_TargetAssemblyTypeName: SaveForm, Assembly-CSharp
-        m_MethodName: ValidateContact
+        m_MethodName: Validate
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1238,7 +1238,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 488693602}
         m_TargetAssemblyTypeName: SaveForm, Assembly-CSharp
-        m_MethodName: ValidateContact
+        m_MethodName: Validate
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1253,7 +1253,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 488693602}
         m_TargetAssemblyTypeName: SaveForm, Assembly-CSharp
-        m_MethodName: ValidateContact
+        m_MethodName: Validate
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1274,7 +1274,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 488693602}
         m_TargetAssemblyTypeName: SaveForm, Assembly-CSharp
-        m_MethodName: ValidateContact
+        m_MethodName: Validate
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1655,7 +1655,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 488693602}
         m_TargetAssemblyTypeName: SaveForm, Assembly-CSharp
-        m_MethodName: ValidateContact
+        m_MethodName: Validate
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1673,7 +1673,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 488693602}
         m_TargetAssemblyTypeName: SaveForm, Assembly-CSharp
-        m_MethodName: ValidateContact
+        m_MethodName: Validate
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1688,7 +1688,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 488693602}
         m_TargetAssemblyTypeName: SaveForm, Assembly-CSharp
-        m_MethodName: ValidateContact
+        m_MethodName: Validate
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1709,7 +1709,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 488693602}
         m_TargetAssemblyTypeName: SaveForm, Assembly-CSharp
-        m_MethodName: ValidateContact
+        m_MethodName: Validate
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -23,16 +23,16 @@ public class SaveForm : MonoBehaviour
         _sessionSave.End(_username.text, _contact.text);
     }
 
-    public void ValidateContact()
+    public void Validate()
     {
-        if (string.IsNullOrEmpty(_contact.text))
+        if (string.IsNullOrEmpty(_username.text) && string.IsNullOrEmpty(_contact.text))
         {
             SetValid();
 
             return;
         }
 
-        if (!IsValidMailAddress(_contact.text) || string.IsNullOrEmpty(_username.text))
+        if (string.IsNullOrEmpty(_username.text) || !IsValidMailAddress(_contact.text))
         {
             SetInvalid();
         }
@@ -64,6 +64,11 @@ public class SaveForm : MonoBehaviour
 
     bool IsValidMailAddress(string address)
     {
+        if (string.IsNullOrEmpty(address))
+        {
+            return false;
+        }
+
         var trimmedAddress = address.Trim();
 
         if (trimmedAddress.EndsWith("."))
