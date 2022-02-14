@@ -236,10 +236,6 @@ MonoBehaviour:
     m_Address: "Assets/_Project/_Art/bot\xE3o small.png"
     m_ReadOnly: 0
     m_SerializedLabels: []
-  - m_GUID: 014986bdba81c5e4ea6ebfcaf6e8050d
-    m_Address: Assets/_Project/_Art/capa.jpg
-    m_ReadOnly: 0
-    m_SerializedLabels: []
   - m_GUID: ba3fd864a88e24d469924f0f4412fa00
     m_Address: Assets/_Project/_Art/borda/personagens eu pernas borda.png
     m_ReadOnly: 0
@@ -414,6 +410,10 @@ MonoBehaviour:
     m_SerializedLabels: []
   - m_GUID: 11fd3c30a3b584a4b88cfb31b9d8133b
     m_Address: HTML Document Asset Reference Container
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 68def85b6b1ec3c46ba012af31862471
+    m_Address: Assets/_Project/_Art/capa ideia.jpg
     m_ReadOnly: 0
     m_SerializedLabels: []
   m_ReadOnly: 0
