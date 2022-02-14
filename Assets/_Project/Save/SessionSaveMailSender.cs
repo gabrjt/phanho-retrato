@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Net;
 using System.Net.Mail;
 using System.Net.Security;
@@ -96,10 +97,12 @@ public class SessionSaveMailSender : ScriptableObject
         {
             _htmlDocumentAssetReference.TryUnloadCurrentAsset();
 
-            using var smtpClient = new SmtpClient(Host) {Port = Port, Credentials = _credentials, EnableSsl = EnableSSL};
+            using var smtpClient = new SmtpClient(Host, Port) {Credentials = _credentials, EnableSsl = EnableSSL};
             var mailSentResult = new MailSentResult();
 
-            smtpClient.SendCompleted += (sender, args) =>
+            smtpClient.SendCompleted += OnSendCompleted;
+
+            void OnSendCompleted(object sender, AsyncCompletedEventArgs args)
             {
                 if (args.Error != null)
                 {
@@ -114,7 +117,7 @@ public class SessionSaveMailSender : ScriptableObject
                 }
 
                 mailSentResult.SetSent();
-            };
+            }
 
             void CancelSend()
             {
@@ -148,9 +151,7 @@ public class SessionSaveMailSender : ScriptableObject
     [Button]
     void TestSendMail()
     {
-        var result = new SessionSave.Result {Contact = "gabr.j.t@gmail.com"};
-
-        SendMail(result);
+        SendMail(new SessionSave.Result {Name = "Gabiru", Contact = "gabr.j.t@gmail.com", CharacterBodyPartsData = new CharacterBodyParts.CharacterBodyPartsData {CharacterID = 128}});
     }
 #endif
 
