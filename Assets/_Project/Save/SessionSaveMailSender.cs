@@ -50,7 +50,7 @@ public class SessionSaveMailSender : ScriptableObject
 
     string GetFormattedMailBody(SessionSave.Result result, string htmlDocumentText)
     {
-        return htmlDocumentText;
+        return htmlDocumentText.Replace("%NAME%", result.Name).Replace("%RESULT%", result.CharacterBodyPartsData.CharacterID.ToString());
     }
 
     async void SendMail(SessionSave.Result result)
