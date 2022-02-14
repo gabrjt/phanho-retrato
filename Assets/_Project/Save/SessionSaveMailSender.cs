@@ -12,10 +12,10 @@ using UnityEngine.Assertions;
 [CreateAssetMenu]
 public class SessionSaveMailSender : ScriptableObject
 {
-    const int Port = 587;
-    const bool EnableSSL = true;
-    const string Host = "smtp.gmail.com";
     const string Subject = "[RETRATO] seu REFLEXO";
+    [SerializeField] string _host = "smtp.gmail.com";
+    [SerializeField] int _port = 587;
+    [SerializeField] bool _enableSSL = true;
     [SerializeField] [Required] AssetReferenceContainer _htmlDocumentAssetReference;
     readonly CancellationTokenContainer _cancellationToken = new();
     readonly NetworkCredential _credentials = new("reflexo.retrato@gmail.com", "retrato666");
@@ -97,7 +97,7 @@ public class SessionSaveMailSender : ScriptableObject
         {
             _htmlDocumentAssetReference.TryUnloadCurrentAsset();
 
-            using var smtpClient = new SmtpClient(Host, Port) {Credentials = _credentials, EnableSsl = EnableSSL};
+            using var smtpClient = new SmtpClient(_host, _port) {Credentials = _credentials, EnableSsl = _enableSSL, UseDefaultCredentials = false};
             var mailSentResult = new MailSentResult();
 
             smtpClient.SendCompleted += OnSendCompleted;
