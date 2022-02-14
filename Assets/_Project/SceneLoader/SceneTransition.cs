@@ -16,6 +16,7 @@ public class SceneTransition : MonoBehaviour
     [ShowNonSerializedField] bool _fadeIn = true;
     RenderTextureContainer _renderTextureContainer;
     SceneLoader _sceneLoader;
+    Texture _texture;
 
     async void OnEnable()
     {
@@ -77,7 +78,7 @@ public class SceneTransition : MonoBehaviour
     {
         canvas.gameObject.SetActive(false);
 
-        _image.texture = renderTexture.ToTexture2D();
+        _texture = _uiTransitionEffect.transitionTexture = _image.texture = renderTexture.ToTexture2D();
 
         if (_fadeIn)
         {
@@ -99,6 +100,8 @@ public class SceneTransition : MonoBehaviour
 
         if (!cancelled)
         {
+            OnFadeFinished();
+
             canvas.gameObject.SetActive(true);
         }
     }
@@ -117,7 +120,16 @@ public class SceneTransition : MonoBehaviour
 
         if (!cancelled)
         {
+            OnFadeFinished();
+
             _sceneLoader.LoadNextScene();
         }
+    }
+
+    void OnFadeFinished()
+    {
+        DestroyImmediate(_texture);
+
+        _texture = _uiTransitionEffect.transitionTexture = _image.texture = null;
     }
 }

@@ -27,5 +27,7 @@ public class RenderTextureContainer : ScriptableObject
         TextureRendered?.Invoke(canvas, renderTexture);
 
         renderTexture.Release();
+
+        DestroyImmediate(renderTexture);
     }
 }
