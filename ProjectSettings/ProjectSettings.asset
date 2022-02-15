@@ -134,8 +134,10 @@ PlayerSettings:
     16:10: 1
     16:9: 1
     Others: 1
-  bundleVersion: 0.9
-  preloadedAssets: []
+  bundleVersion: 0.9.1
+  preloadedAssets:
+  - {fileID: -6769370119793569704, guid: 52287ef35d208724db202b5045fce8a7, type: 2}
+  - {fileID: 11400000, guid: 02f511a33b602604090ec494a10abb35, type: 2}
   metroInputSource: 0
   wsaTransparentSwapchain: 0
   m_HolographicPauseOnTrackingLoss: 1
@@ -782,7 +784,8 @@ PlayerSettings:
   gcIncremental: 1
   assemblyVersionValidation: 1
   gcWBarrierValidation: 0
-  apiCompatibilityLevelPerPlatform: {}
+  apiCompatibilityLevelPerPlatform:
+    Standalone: 3
   m_RenderingPath: 1
   m_MobileRenderingPath: 1
   metroPackageName: 2D_BuiltInRenderer
