@@ -12,4 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5dda3213aaa34910bc5a8291b2c3a6b9, type: 3}
   m_Name: Session Save Mail Sender
   m_EditorClassIdentifier: 
+  _host: smtp.gmail.com
+  _port: 587
+  _enableSSL: 1
   _htmlDocumentAssetReference: {fileID: 11400000, guid: 11fd3c30a3b584a4b88cfb31b9d8133b, type: 2}
