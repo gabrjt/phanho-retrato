@@ -8,6 +8,7 @@ using Cysharp.Threading.Tasks;
 using NaughtyAttributes;
 using UnityEngine;
 using UnityEngine.Assertions;
+using UnityEngine.Networking;
 
 [CreateAssetMenu]
 public class SessionSaveMailSender : ScriptableObject
@@ -16,6 +17,7 @@ public class SessionSaveMailSender : ScriptableObject
     [SerializeField] string _host = "smtp.gmail.com";
     [SerializeField] int _port = 587;
     [SerializeField] bool _enableSSL = true;
+    [SerializeField] bool _useWebServer = true;
     [SerializeField] [Required] AssetReferenceContainer _htmlDocumentAssetReference;
     readonly CancellationTokenContainer _cancellationToken = new();
     readonly NetworkCredential _credentials = new("reflexo.retrato@gmail.com", "retrato666");
@@ -73,6 +75,18 @@ public class SessionSaveMailSender : ScriptableObject
             return;
         }
 
+        if (_useWebServer)
+        {
+            SendMailServer(result, to, htmlDocument);
+        }
+        else
+        {
+            SendMailSMTP(result, to, htmlDocument);
+        }
+    }
+
+    async void SendMailSMTP(SessionSave.Result result, string to, TextAsset htmlDocument)
+    {
         MailMessage mailMessage;
 
         try
@@ -83,7 +97,7 @@ public class SessionSaveMailSender : ScriptableObject
                 Subject = Subject,
                 IsBodyHtml = true,
                 Body = GetFormattedMailBody(result, htmlDocument.text),
-                To = {to}
+                To = { to }
             };
         }
         catch (FormatException exception)
@@ -97,7 +111,7 @@ public class SessionSaveMailSender : ScriptableObject
         {
             _htmlDocumentAssetReference.TryUnloadCurrentAsset();
 
-            using var smtpClient = new SmtpClient(_host, _port) {Credentials = _credentials, EnableSsl = _enableSSL, UseDefaultCredentials = false};
+            using var smtpClient = new SmtpClient(_host, _port) { Credentials = _credentials, EnableSsl = _enableSSL, UseDefaultCredentials = false };
             var mailSentResult = new MailSentResult();
 
             smtpClient.SendCompleted += OnSendCompleted;
@@ -147,11 +161,38 @@ public class SessionSaveMailSender : ScriptableObject
         }
     }
 
+    async void SendMailServer(SessionSave.Result result, string to, TextAsset htmlDocument)
+    {
+        var wwwForm = new WWWForm();
+
+        wwwForm.AddField("toEmail", to);
+
+        using var unityWebRequest = UnityWebRequest.Post("https://raphaelrodrigues.art.br/mail-sender.php", wwwForm);
+
+        await unityWebRequest.SendWebRequest();
+
+        if (unityWebRequest.result != UnityWebRequest.Result.Success)
+        {
+            Debug.LogError($"{nameof(SessionSaveMailSender)}::{nameof(SendMail)}: {unityWebRequest.error}");
+
+            return;
+        }
+
+        Debug.Log($"{nameof(SessionSaveMailSender)}::{nameof(SendMail)}: {unityWebRequest.result}");
+
+        foreach (var responseHeader in unityWebRequest.GetResponseHeaders())
+        {
+            Debug.Log($"{responseHeader.Key} {responseHeader.Value}");
+        }
+
+        Debug.Log(unityWebRequest.downloadHandler.text);
+    }
+
 #if UNITY_EDITOR
     [Button]
     void TestSendMail()
     {
-        SendMail(new SessionSave.Result {Name = "Gabiru", Contact = "gabr.j.t@gmail.com", CharacterBodyPartsData = new CharacterBodyParts.CharacterBodyPartsData {CharacterID = 128}});
+        SendMail(new SessionSave.Result { Name = "Gabiru", Contact = "gabr.j.t@gmail.com", CharacterBodyPartsData = new CharacterBodyParts.CharacterBodyPartsData { CharacterID = 128 } });
     }
 #endif
 
