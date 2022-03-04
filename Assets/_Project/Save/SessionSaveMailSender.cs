@@ -1,10 +1,4 @@
-﻿using System;
-using System.ComponentModel;
-using System.Net;
-using System.Net.Mail;
-using System.Net.Security;
-using System.Security.Cryptography.X509Certificates;
-using Cysharp.Threading.Tasks;
+﻿using Cysharp.Threading.Tasks;
 using NaughtyAttributes;
 using UnityEngine;
 using UnityEngine.Assertions;
@@ -13,218 +7,88 @@ using UnityEngine.Networking;
 [CreateAssetMenu]
 public class SessionSaveMailSender : ScriptableObject
 {
-    const string Subject = "[RETRATO] seu REFLEXO";
-    [SerializeField] string _host = "smtp.gmail.com";
-    [SerializeField] int _port = 587;
-    [SerializeField] bool _enableSSL = true;
-    [SerializeField] bool _useWebServer = true;
-    [SerializeField] [Required] AssetReferenceContainer _htmlDocumentAssetReference;
     readonly CancellationTokenContainer _cancellationToken = new();
-    readonly NetworkCredential _credentials = new("reflexo.retrato@gmail.com", "retrato666");
-    readonly MailAddress _mailAddress = new("reflexo.retrato@gmail.com");
-
-    void OnEnable()
-    {
-        ServicePointManager.ServerCertificateValidationCallback = ServerCertificateValidationCallback;
-    }
 
     void OnDisable()
     {
         Cancel();
-
-        _htmlDocumentAssetReference.TryUnloadCurrentAsset();
     }
 
     [Button]
-    public void Cancel()
+    void Cancel()
     {
         _cancellationToken.Cancel();
     }
 
     public void OnResultSaved(SessionSave.Result result)
     {
-        SendMail(result);
+        SendMail(ref result);
     }
 
-    bool ServerCertificateValidationCallback(object sender, X509Certificate certificate, X509Chain chain, SslPolicyErrors sslpolicyerrors)
-    {
-        return true;
-    }
-
-    string GetFormattedMailBody(SessionSave.Result result, string htmlDocumentText)
+    static string GetFormattedMailBody(SessionSave.Result result, string htmlDocumentText)
     {
         return htmlDocumentText.Replace("%NAME%", result.Name).Replace("%RESULT%", result.CharacterBodyPartsData.CharacterID.ToString());
     }
 
-    async void SendMail(SessionSave.Result result)
+    void SendMail(ref SessionSave.Result result)
     {
         var to = result.Contact;
+        var toName = result.Name;
+        var characterID = result.CharacterBodyPartsData.CharacterID;
 
         if (string.IsNullOrEmpty(to))
         {
             return;
         }
 
-        Assert.IsFalse(string.IsNullOrEmpty(result.Name));
+        Assert.IsFalse(string.IsNullOrEmpty(toName));
         Assert.IsFalse(string.IsNullOrEmpty(to));
 
-        var (success, htmlDocument) = await _htmlDocumentAssetReference.LoadCurrentAsset<TextAsset>();
-
-        if (!success)
-        {
-            return;
-        }
-
-        if (_useWebServer)
-        {
-            SendMailServer(result, to, htmlDocument);
-        }
-        else
-        {
-            SendMailSMTP(result, to, htmlDocument);
-        }
+        SendMailServer(to, toName, characterID);
     }
 
-    async void SendMailSMTP(SessionSave.Result result, string to, TextAsset htmlDocument)
-    {
-        MailMessage mailMessage;
-
-        try
-        {
-            mailMessage = new MailMessage
-            {
-                From = _mailAddress,
-                Subject = Subject,
-                IsBodyHtml = true,
-                Body = GetFormattedMailBody(result, htmlDocument.text),
-                To = { to }
-            };
-        }
-        catch (FormatException exception)
-        {
-            Debug.LogException(exception);
-
-            return;
-        }
-
-        using (mailMessage)
-        {
-            _htmlDocumentAssetReference.TryUnloadCurrentAsset();
-
-            using var smtpClient = new SmtpClient(_host, _port) { Credentials = _credentials, EnableSsl = _enableSSL, UseDefaultCredentials = false };
-            var mailSentResult = new MailSentResult();
-
-            smtpClient.SendCompleted += OnSendCompleted;
-
-            void OnSendCompleted(object sender, AsyncCompletedEventArgs args)
-            {
-                if (args.Error != null)
-                {
-                    Debug.LogException(args.Error);
-
-                    return;
-                }
-
-                if (args.Cancelled || mailSentResult.IsUnsent())
-                {
-                    return;
-                }
-
-                mailSentResult.SetSent();
-            }
-
-            void CancelSend()
-            {
-                mailSentResult.SetUnsent();
-                smtpClient.SendAsyncCancel();
-            }
-
-            _cancellationToken.CancellationToken.Register(CancelSend);
-
-            smtpClient.SendMailAsync(mailMessage);
-
-            var cancelled = await UniTask.WaitUntil(mailSentResult.IsCompleted, PlayerLoopTiming.Update, _cancellationToken.CancellationToken).SuppressCancellationThrow();
-
-            if (!cancelled)
-            {
-                _cancellationToken.Reset();
-            }
-
-            if (mailSentResult.IsSent())
-            {
-                Debug.Log($"{nameof(SessionSaveMailSender)}::{nameof(SendMail)} successfully sent mail to {to}");
-            }
-            else
-            {
-                Debug.LogWarning($"{nameof(SessionSaveMailSender)}::{nameof(SendMail)} cancelled mail send to {to}");
-            }
-        }
-    }
-
-    async void SendMailServer(SessionSave.Result result, string to, TextAsset htmlDocument)
+    async void SendMailServer(string to, string toName, int characterID)
     {
         var wwwForm = new WWWForm();
 
-        wwwForm.AddField("toEmail", to);
+        wwwForm.AddField("to", to);
+        wwwForm.AddField("name", toName);
+        wwwForm.AddField("characterID", characterID.ToString());
 
         using var unityWebRequest = UnityWebRequest.Post("https://raphaelrodrigues.art.br/mail-sender.php", wwwForm);
 
-        await unityWebRequest.SendWebRequest();
+        var (cancelled, webRequest) = await unityWebRequest.SendWebRequest().WithCancellation(_cancellationToken.CancellationToken).SuppressCancellationThrow();
 
-        if (unityWebRequest.result != UnityWebRequest.Result.Success)
+        if (cancelled)
         {
-            Debug.LogError($"{nameof(SessionSaveMailSender)}::{nameof(SendMail)}: {unityWebRequest.error}");
+            return;
+        }
+
+        if (webRequest.result != UnityWebRequest.Result.Success)
+        {
+            Debug.LogError($"{nameof(SessionSaveMailSender)}::{nameof(SendMail)}: {webRequest.error}");
 
             return;
         }
 
-        Debug.Log($"{nameof(SessionSaveMailSender)}::{nameof(SendMail)}: {unityWebRequest.result}");
-
-        foreach (var responseHeader in unityWebRequest.GetResponseHeaders())
-        {
-            Debug.Log($"{responseHeader.Key} {responseHeader.Value}");
-        }
-
-        Debug.Log(unityWebRequest.downloadHandler.text);
+        Debug.Log($"{nameof(SessionSaveMailSender)}::{nameof(SendMail)}: {webRequest.result} | Response: {webRequest.downloadHandler.text}");
     }
 
 #if UNITY_EDITOR
     [Button]
     void TestSendMail()
     {
-        SendMail(new SessionSave.Result { Name = "Gabiru", Contact = "gabr.j.t@gmail.com", CharacterBodyPartsData = new CharacterBodyParts.CharacterBodyPartsData { CharacterID = 128 } });
+        var result = new SessionSave.Result
+        {
+            Name = _testName, Contact = _testMails[_testMailIndex], CharacterBodyPartsData = new CharacterBodyParts.CharacterBodyPartsData { CharacterID = _testID }
+        };
+
+        SendMail(ref result);
     }
+
+    [SerializeField] string[] _testMails = { "gabr.j.t@gmail.com", "reflexo.retrato@gmail.com", "artesvisuaisrr@gmail.com" };
+    [SerializeField] int _testMailIndex;
+    [SerializeField] string _testName = "Gabiru";
+    [SerializeField] int _testID = 64;
 #endif
-
-    class MailSentResult
-    {
-        bool _completed;
-        bool _sent;
-
-        public bool IsSent()
-        {
-            return _sent;
-        }
-
-        public bool IsUnsent()
-        {
-            return !_sent && _completed;
-        }
-
-        public void SetSent()
-        {
-            _completed = _sent = true;
-        }
-
-        public void SetUnsent()
-        {
-            _sent = false;
-            _completed = true;
-        }
-
-        public bool IsCompleted()
-        {
-            return _completed;
-        }
-    }
 }
