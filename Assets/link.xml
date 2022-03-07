@@ -1,8 +1,0 @@
-<linker>
-<assembly fullname="System">
-<type fullname="System.Net.Configuration.MailSettingsSectionGroup" preserve="all"/>
-<type fullname="System.Net.Configuration.SmtpSection" preserve="all"/>
-<type fullname="System.Net.Configuration.SmtpNetworkElement" preserve="all"/>
-<type fullname="System.Net.Configuration.SmtpSpecifiedPickupDirectoryElement" preserve="all"/>
-</assembly>
-</linker>
