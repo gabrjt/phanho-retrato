@@ -126,11 +126,11 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.addressables": {
-      "version": "1.19.17",
+      "version": "1.19.18",
       "depth": 0,
       "source": "registry",
       "dependencies": {
-        "com.unity.scriptablebuildpipeline": "1.19.5",
+        "com.unity.scriptablebuildpipeline": "1.19.6",
         "com.unity.modules.assetbundle": "1.0.0",
         "com.unity.modules.imageconversion": "1.0.0",
         "com.unity.modules.jsonserialize": "1.0.0",
@@ -192,7 +192,7 @@
       "dependencies": {
         "com.unity.mobile.android-logcat": "1.2.3",
         "com.unity.adaptiveperformance": "3.0.0",
-        "com.unity.mobile.notifications": "1.4.2"
+        "com.unity.mobile.notifications": "2.0.0"
       }
     },
     "com.unity.ide.rider": {
@@ -214,7 +214,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.ide.vscode": {
-      "version": "1.2.4",
+      "version": "1.2.5",
       "depth": 0,
       "source": "registry",
       "dependencies": {},
@@ -244,7 +244,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.mobile.notifications": {
-      "version": "1.4.2",
+      "version": "2.0.0",
       "depth": 1,
       "source": "registry",
       "dependencies": {
@@ -260,7 +260,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.scriptablebuildpipeline": {
-      "version": "1.19.5",
+      "version": "1.19.6",
       "depth": 1,
       "source": "registry",
       "dependencies": {},
